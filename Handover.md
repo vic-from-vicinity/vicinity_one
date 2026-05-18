@@ -30,7 +30,7 @@
 
 **Pending (from site-polish-checklist):**
 - Deploy Contact Page (copy ready in `Clients/JMarie/contact-page-copy.md`)
-- Social Proof Injection (2-3 testimonials on homepage)
+- Social Proof Injection (2-3 of the client's own real testimonials; do not deploy placeholders)
 - Organic Blog Dating
 - Home Page Service Layout
 - End-to-End Booking Test

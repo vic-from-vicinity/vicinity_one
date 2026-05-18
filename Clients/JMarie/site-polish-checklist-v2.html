@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Justine Marie — Mission Control</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0f0f1a; color: #eee; padding: 40px 20px; line-height: 1.6; }
+    .container { max-width: 800px; margin: 0 auto; }
+    
+    header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+    h1 { color: #f5c6d6; margin-bottom: 5px; font-size: 2.2rem; letter-spacing: -1px; font-weight: 800; }
+    .subtitle { color: #888; font-size: 1rem; }
+    
+    /* Focus Dashboard */
+    .focus-card { background: linear-gradient(135deg, #252540 0%, #1a1a2e 100%); border: 1px solid #3d3d5c; padding: 25px; border-radius: 16px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); border-left: 6px solid #f5c6d6; position: sticky; top: 20px; z-index: 100; }
+    .focus-label { text-transform: uppercase; font-size: 0.75rem; font-weight: 800; color: #f5c6d6; letter-spacing: 2px; margin-bottom: 12px; display: block; }
+    .focus-task { font-size: 1.6rem; font-weight: 600; color: #fff; margin-bottom: 15px; line-height: 1.2; }
+    
+    .progress-container { flex: 1; max-width: 250px; text-align: right; }
+    .progress-bar { background: #252540; height: 10px; border-radius: 5px; margin-top: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.05); }
+    .progress-fill { background: linear-gradient(90deg, #f5c6d6, #c792ea); height: 100%; width: 0%; transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .progress-text { font-size: 0.85rem; color: #aaa; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    
+    section { margin-bottom: 50px; }
+    h2 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; color: #888; display: flex; align-items: center; gap: 10px; }
+    h2::after { content: ""; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+    
+    .task { background: #1e1e35; padding: 20px; margin-bottom: 15px; border-radius: 14px; display: flex; align-items: flex-start; gap: 18px; border: 1px solid rgba(255,255,255,0.05); transition: all 0.3s ease; cursor: pointer; }
+    .task:hover { background: #252540; border-color: rgba(245, 198, 214, 0.3); transform: translateX(5px); }
+    .task.completed { opacity: 0.5; background: rgba(22, 22, 42, 0.5); border-color: transparent; }
+    .task.completed .task-title { text-decoration: line-through; color: #666; }
+    
+    input[type="checkbox"] { width: 26px; height: 26px; accent-color: #f5c6d6; cursor: pointer; margin-top: 2px; flex-shrink: 0; }
+    .task-content { flex: 1; }
+    .task-title { font-size: 1.15rem; font-weight: 600; margin-bottom: 6px; color: #fff; }
+    .task-detail { font-size: 0.95rem; color: #999; margin-bottom: 12px; }
+    
+    .meta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .tag { font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .tag-where { background: rgba(245, 198, 214, 0.15); color: #f5c6d6; }
+    .tag-time { background: rgba(72, 219, 251, 0.15); color: #48dbfb; }
+    
+    .notes { background: #16162a; padding: 30px; border-radius: 16px; border: 1px dashed rgba(255,255,255,0.1); margin-top: 60px; }
+    .notes h3 { color: #f5c6d6; margin-bottom: 15px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; }
+    .notes p { color: #777; font-size: 0.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <div>
+            <h1>Justine Marie</h1>
+            <p class="subtitle">Site Polish Dashboard — Due Today</p>
+        </div>
+        <div class="progress-container">
+            <div class="progress-text" id="progressText">0% Complete</div>
+            <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+        </div>
+    </header>
+    <div class="focus-card" id="focusCard">
+        <span class="focus-label">🎯 Current Objective</span>
+        <div class="focus-task" id="currentFocus">Kill "Hippie Sage" Identity</div>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <p style="color: #888; font-size: 0.9rem;">Focus on this one task. Everything else can wait.</p>
+            <span id="focusTime" style="color: #48dbfb; font-weight: 600; font-size: 0.9rem;">⏱️ 5 min</span>
+        </div>
+    </div>
+    <section>
+        <h2 style="color: #ff6b6b;">🔥 High Priority Fixes</h2>
+        <div class="task" id="task-1" onclick="toggleTask(1)">
+            <input type="checkbox" id="check-1" checked onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title" style="text-decoration: line-through; opacity: 0.6;">Kill "Hippie Sage" Identity</div>
+                <div class="task-detail">✅ Done - Blogs removed</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Blog Settings</span>
+                    <span class="tag tag-time">5 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-2" onclick="toggleTask(2)">
+            <input type="checkbox" id="check-2" checked onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title" style="text-decoration: line-through; opacity: 0.6;">Reiki Page Content Expansion</div>
+                <div class="task-detail">Add descriptions for the 4 empty Reiki sessions (Body/Mind, Relationships, Career, Home).</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Services</span>
+                    <span class="tag tag-time">30 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-3" onclick="toggleTask(3)">
+            <input type="checkbox" id="check-3" checked onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title" style="text-decoration: line-through; opacity: 0.6;">Fix /about 404 Error</div>
+                <div class="task-detail">✅ Shelved - All menu/footer links removed. No /about page planned for the time being.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Menus</span>
+                    <span class="tag tag-time">10 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-4" onclick="toggleTask(4)">
+            <input type="checkbox" id="check-4" onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title">Deploy Contact Page</div>
+                <div class="task-detail">Zero ways to reach out directly. Add a standard Contact form page.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Add Page</span>
+                    <span class="tag tag-time">15 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 style="color: #feca57;">🔧 Build & Fill</h2>
+        <div class="task" id="task-5" onclick="toggleTask(5)">
+            <input type="checkbox" id="check-5" onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title">Social Proof Injection</div>
+                <div class="task-detail">⚠️ Add 2-3 real client testimonials to the homepage. Do not deploy structural placeholders.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Home</span>
+                    <span class="tag tag-time">20 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-6" onclick="toggleTask(6)">
+            <input type="checkbox" id="check-6" checked onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title" style="text-decoration: line-through; opacity: 0.6;">Professional Footer Build</div>
+                <div class="task-detail">✅ Done - Email, phone, and social icons added to footer.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Global Footer</span>
+                    <span class="tag tag-time">10 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-7" onclick="toggleTask(7)">
+            <input type="checkbox" id="check-7" checked onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title" style="text-decoration: line-through; opacity: 0.6;">Consolidate Reiki Options</div>
+                <div class="task-detail">✅ Done - Usui Reiki removed; replaced with 4 specialized Reiki offerings.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Services</span>
+                    <span class="tag tag-time">15 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-8" onclick="toggleTask(8)">
+            <input type="checkbox" id="check-8" checked onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title" style="text-decoration: line-through; opacity: 0.6;">Deepen Core Descriptions</div>
+                <div class="task-detail">✅ Done - Expanded Intuitive Reading & QHHT descriptions to sell the experience.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Services</span>
+                    <span class="tag tag-time">20 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 style="color: #48dbfb;">✨ Final Polish</h2>
+        <div class="task" id="task-9" onclick="toggleTask(9)">
+            <input type="checkbox" id="check-9" onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title">Organic Blog Dating</div>
+                <div class="task-detail">Change blog dates to look like a history, not a single-day dump.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Blog</span>
+                    <span class="tag tag-time">5 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-10" onclick="toggleTask(10)">
+            <input type="checkbox" id="check-10" onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title">Home Page Service Layout</div>
+                <div class="task-detail">Check if only showing 3 services is okay, or if we should list more.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Wix → Home</span>
+                    <span class="tag tag-time">10 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-11" onclick="toggleTask(11)">
+            <input type="checkbox" id="check-11" onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title">End-to-End Booking Test</div>
+                <div class="task-detail">Click every 'Book Now' and follow through to the calendar page.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Live Site</span>
+                    <span class="tag tag-time">5 min</span>
+                </div>
+            </div>
+        </div>
+        <div class="task" id="task-12" onclick="toggleTask(12)">
+            <input type="checkbox" id="check-12" onchange="event.stopPropagation(); updateProgress()">
+            <div class="task-content">
+                <div class="task-title">Mobile Stress Test</div>
+                <div class="task-detail">Check for overlapping text or giant images on mobile view.</div>
+                <div class="meta-row">
+                    <span class="tag tag-where">Mobile Preview</span>
+                    <span class="tag tag-time">10 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="notes">
+        <h3>📋 Agent Command Center</h3>
+        <p>• <b>Status:</b> Ready to assist with copywriting and strategy.</p>
+        <p>• <b>Tip:</b> Tell me when a task is done and I'll update this file for you.</p>
+        <p>• <b>Upcoming:</b> I have the Reiki descriptions ready for Task #2.</p>
+    </div>
+</div>
+<script>
+    function toggleTask(id) {
+        const checkbox = document.getElementById('check-' + id);
+        checkbox.checked = !checkbox.checked;
+        updateProgress();
+    }
+    function updateProgress() {
+        const boxes = document.querySelectorAll('input[type="checkbox"]');
+        const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        const total = boxes.length;
+        const pct = Math.round((checked / total) * 100);
+        document.getElementById('progress').style.width = pct + '%';
+        document.getElementById('progressText').textContent = pct + '% Complete';
+        boxes.forEach(box => {
+            const taskDiv = box.closest('.task');
+            if (box.checked) {
+                taskDiv.classList.add('completed');
+            } else {
+                taskDiv.classList.remove('completed');
+            }
+        });
+        const nextTask = Array.from(boxes).find(b => !b.checked);
+        if (nextTask) {
+            const taskDiv = nextTask.closest('.task');
+            const title = taskDiv.querySelector('.task-title').textContent;
+            const time = taskDiv.querySelector('.tag-time').textContent;
+            document.getElementById('currentFocus').textContent = title;
+            document.getElementById('focusTime').textContent = '⏱️ ' + time;
+            document.getElementById('focusCard').style.opacity = "1";
+        } else {
+            document.getElementById('currentFocus').textContent = "🎉 Mission Accomplished!";
+            document.getElementById('focusTime').textContent = "";
+            document.getElementById('focusCard').style.borderLeftColor = "#48dbfb";
+        }
+    }
+    window.onload = updateProgress;
+</script>
+</body>
+</html>
