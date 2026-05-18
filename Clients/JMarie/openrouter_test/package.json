@@ -1,0 +1,14 @@
+{
+  "name": "openrouter-test",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Test script for OpenRouter free reasoning models",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@openrouter/sdk": "^0.12.35",
+    "dotenv": "^16.6.1"
+  }
+}
