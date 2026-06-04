@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vicinty Web & Creative — Custom Websites, Graphic Design & Web Apps</title>
+<meta name="description" content="Hand-coded websites, graphic design, and web apps for local businesses. From $1,200. 1-week delivery. Based in the US, serving nationwide.">
+<meta name="keywords" content="web design, graphic design, web apps, wix, squarespace, wordpress, shopify, small business websites, custom websites">
+<meta name="author" content="Vicinty Web & Creative">
+<meta name="theme-color" content="#08080c">
+<meta property="og:title" content="Vicinty Web & Creative — Custom Websites for Local Businesses">
+<meta property="og:description" content="Hand-coded websites, branding, and web apps. From $1,200. 1-week delivery.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vicinity-creative.vercel.app">
+<meta property="og:image" content="https://vicinity-creative.vercel.app/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vicinty Web & Creative">
+<meta name="twitter:description" content="Custom websites, branding, and web apps for local businesses. From $1,200.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e5ff'/%3E%3Cstop offset='100%25' stop-color='%23ff6b35'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M25 20 Q35 40 50 75 Q65 40 75 20' stroke='url(%23g)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='18' r='2' fill='%2300e5ff'/%3E%3Ccircle cx='78' cy='18' r='2' fill='%23ff6b35'/%3E%3C/svg%3E">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#08080c;--bg2:#0e0e14;--bg3:#14141c;--border:#1e1e2a;--navy:#0a1628;--teal:#00d4aa;--cyan:#00e5ff;--orange:#ff6b35;--amber:#ffb347;--gold:#d4a853;--accent:#e94560;--accent2:#667eea;--accent3:#5a9e6f;--text:#c4c4cc;--text-dim:#6b6b78;--text-bright:#f0f0f5;--shadow:0 4px 30px rgba(0,0,0,.5)}
@@ -86,6 +99,26 @@ section{padding:5rem 2rem}
 .ic-gd{background:linear-gradient(135deg,var(--accent2),var(--teal))}
 .ic-app{background:linear-gradient(135deg,var(--accent3),var(--orange))}
 
+/* TESTIMONIALS */
+.testimonial-card{padding:2rem;background:var(--bg3);border:1px solid var(--border);border-radius:16px;transition:all .3s}
+.testimonial-card:hover{border-color:var(--cyan);transform:translateY(-4px)}
+
+/* STACK CHIPS */
+.stack-chip{padding:.7rem 1.4rem;background:var(--bg3);border:1px solid var(--border);border-radius:50px;color:var(--text);font-weight:600;font-size:.9rem;transition:all .3s}
+.stack-chip:hover{border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:.8rem}
+.faq-item{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.5rem;cursor:pointer;transition:all .3s}
+.faq-item:hover{border-color:var(--cyan)}
+.faq-item summary{color:var(--text-bright);font-weight:600;font-size:1rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.faq-item summary::after{content:'+';color:var(--cyan);font-size:1.4rem;transition:transform .3s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{color:var(--text-dim);margin-top:1rem;font-size:.95rem;line-height:1.7}
+
+/* PULSE ANIMATION */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
 /* PROCESS - WAVE TIMELINE */
 #process{background:var(--bg2);position:relative;overflow:hidden}
 #process::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(0,229,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
@@ -158,6 +191,12 @@ footer p{color:var(--text-dim);font-size:.8rem}
   .demo-iframe-wrap{height:380px}
   .price-card.featured{transform:none}
   .hero-buttons{flex-direction:column;align-items:center}
+  .timeline-steps{grid-template-columns:1fr;gap:1.5rem}
+  .tl-step:nth-child(odd),.tl-step:nth-child(even){transform:translateY(0)}
+  .wave-svg{display:none}
+  .timeline-connector{display:none}
+  #about .section-inner > div{grid-template-columns:1fr;text-align:center}
+  #about .section-inner > div > div:first-child{margin:0 auto}
 }
 </style>
 </head>
@@ -189,9 +228,11 @@ footer p{color:var(--text-dim);font-size:.8rem}
 </a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#cases">Case Studies</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Get Started</a>
   </div>
@@ -247,7 +288,146 @@ footer p{color:var(--text-dim);font-size:.8rem}
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- ABOUT / FOUNDER -->
+<section id="about" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:center">
+      <div style="position:relative;width:200px;height:200px;margin:0 auto">
+        <svg viewBox="0 0 200 200" style="width:100%;height:100%">
+          <defs>
+            <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#00e5ff"/>
+              <stop offset="100%" stop-color="#ff6b35"/>
+            </linearGradient>
+          </defs>
+          <circle cx="100" cy="100" r="95" fill="url(#aboutGrad)" opacity="0.15"/>
+          <circle cx="100" cy="100" r="95" fill="none" stroke="url(#aboutGrad)" stroke-width="2" opacity="0.4"/>
+          <text x="100" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="60" fill="url(#aboutGrad)" font-weight="400">V</text>
+        </svg>
+      </div>
+      <div>
+        <span class="section-label">About</span>
+        <h2 class="section-title">Hi, I'm Vic</h2>
+        <p style="color:var(--text-dim);font-size:1.05rem;line-height:1.8;margin-bottom:1rem">I build websites for local businesses that actually convert visitors into customers. No bloated agency overhead — just clean, fast, hand-coded work delivered in a week.</p>
+        <p style="color:var(--text-dim);font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem">Based in Texas, working with clients nationwide. I've built sites for psychics, real estate agents, restaurants, doctors, and small shops — and I maintain them after launch so you never have to touch the tech side.</p>
+        <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem">
+          <div><div style="font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan)">7+</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Platforms</div></div>
+          <div><div style="font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan)">1-2 wk</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Delivery</div></div>
+          <div><div style="font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan)">24h</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Reply Time</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section id="stack" style="background:var(--bg);padding:3rem 2rem">
+  <div class="section-inner" style="text-align:center">
+    <span class="section-label">Platforms & Tools</span>
+    <h2 style="font-family:Georgia,serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:2rem;font-weight:400">I Work With What You Already Use</h2>
+    <div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;max-width:900px;margin:0 auto">
+      <div class="stack-chip">Wix</div>
+      <div class="stack-chip">Squarespace</div>
+      <div class="stack-chip">WordPress</div>
+      <div class="stack-chip">Shopify</div>
+      <div class="stack-chip">Webflow</div>
+      <div class="stack-chip">HTML/CSS</div>
+      <div class="stack-chip">Square</div>
+      <div class="stack-chip">Vercel</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Social Proof</span>
+      <h2 class="section-title">What Clients Say</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1000px;margin:0 auto">
+      <div class="testimonial-card">
+        <div style="color:var(--cyan);font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="color:var(--text);font-size:1rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic">"Vic rebuilt my site in a week. I get compliments on it every single week from clients. The booking flow actually works the way I needed it to."</p>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--orange));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">JM</div>
+          <div>
+            <div style="color:var(--text-bright);font-weight:600">Justine Marie</div>
+            <div style="color:var(--text-dim);font-size:.85rem">Psychic Medium & Reiki Master</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div style="color:var(--cyan);font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="color:var(--text);font-size:1rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic">"Fast, clean, and easy to work with. He handled everything and I got a site I actually love. Way better than the template I was about to buy."</p>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--orange));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">CT</div>
+          <div>
+            <div style="color:var(--text-bright);font-weight:600">Client Testimonial</div>
+            <div style="color:var(--text-dim);font-size:.85rem">Real Estate, TX</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div style="color:var(--cyan);font-size:1.2rem;margin-bottom:1rem;letter-spacing:2px">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p style="color:var(--text);font-size:1rem;line-height:1.7;margin-bottom:1.5rem;font-style:italic">"Vic still updates my site when I need changes. That alone is worth it — I never have to think about the tech side."</p>
+        <div style="display:flex;align-items:center;gap:1rem">
+          <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--orange));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">SB</div>
+          <div>
+            <div style="color:var(--text-bright);font-weight:600">Small Business Owner</div>
+            <div style="color:var(--text-dim);font-size:.85rem">Restaurant, TX</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:var(--bg)">
+  <div class="section-inner" style="max-width:800px">
+    <div class="section-head center">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Common Questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How long does a website take?</summary>
+        <p>Landing pages: 1 week. Full websites: 1-2 weeks. I'll give you a clear timeline before we start so there are no surprises.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What if I don't like the design?</summary>
+        <p>Every project includes revision rounds (1 for landing pages, 2 for full sites). We work together until you're happy. I don't stop until it looks right.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I own the site?</summary>
+        <p>100%. You get full editor access from day one. If you ever want to leave, everything is yours — domain, content, design files.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What about hosting and domains?</summary>
+        <p>I handle all the technical setup. I can help you buy a domain, connect it, and set up hosting — included in the project price.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can you maintain the site after launch?</summary>
+        <p>Yes. I offer monthly maintenance retainers starting at $100/month for content updates, design tweaks, and technical support. Most clients stay on.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How does payment work?</summary>
+        <p>50% deposit to start, 50% on launch. I accept card, bank transfer, or PayPal. Payment plans available for larger projects.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section style="background:var(--bg2);padding:2rem 2rem;text-align:center">
+  <div class="section-inner">
+    <div style="display:inline-flex;align-items:center;gap:.8rem;padding:1rem 2rem;background:var(--bg3);border:1px solid var(--border);border-radius:50px">
+      <span style="width:10px;height:10px;background:#00e676;border-radius:50%;box-shadow:0 0 8px #00e676;animation:pulse 2s infinite"></span>
+      <span style="color:var(--text);font-weight:600">Currently booking projects for July 2026</span>
+    </div>
+  </div>
+</section>
 <section id="services">
   <div class="section-inner">
     <div class="section-head center">
