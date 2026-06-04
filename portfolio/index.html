@@ -86,16 +86,23 @@ section{padding:5rem 2rem}
 .ic-gd{background:linear-gradient(135deg,var(--accent2),var(--teal))}
 .ic-app{background:linear-gradient(135deg,var(--accent3),var(--orange))}
 
-/* PROCESS - CUSTOM TIMELINE */
-#process{background:var(--bg2)}
-.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;counter-reset:step}
-.tl-step{position:relative;padding:2rem 1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:14px;counter-increment:step;transition:all .3s}
-.tl-step:hover{transform:translateY(-4px);border-color:var(--gold)}
-.tl-step::before{content:counter(step,decimal-leading-zero);position:absolute;top:-.8rem;right:1rem;font-family:Georgia,serif;font-size:3rem;font-weight:700;color:var(--cyan);opacity:.15;line-height:1}
-.tl-num{display:block;font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan);margin-bottom:.8rem;font-weight:400}
-.tl-step h3{font-family:Georgia,serif;font-size:1.1rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
-.tl-step p{color:var(--text-dim);font-size:.85rem;line-height:1.6}
-.tl-tag{display:inline-block;margin-top:.8rem;padding:.2rem .6rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(0,229,255,.1);color:var(--cyan)}
+/* PROCESS - WAVE TIMELINE */
+#process{background:var(--bg2);position:relative;overflow:hidden}
+#process::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(0,229,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.wave-timeline{position:relative;padding:4rem 0;min-height:400px}
+.wave-svg{position:absolute;top:50%;left:0;right:0;height:200px;transform:translateY(-50%);z-index:0;pointer-events:none}
+.timeline-steps{display:grid;grid-template-columns:repeat(7,1fr);gap:1rem;position:relative;z-index:1}
+.tl-step{position:relative;padding:1.5rem 1rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;text-align:center;transition:all .3s;counter-increment:step}
+.tl-step:nth-child(odd){transform:translateY(-30px)}
+.tl-step:nth-child(even){transform:translateY(30px)}
+.tl-step:hover{transform:translateY(0);border-color:var(--cyan);box-shadow:0 0 30px rgba(0,229,255,.15)}
+.tl-step::before{content:counter(step,decimal-leading-zero);position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);font-family:Georgia,serif;font-size:2rem;font-weight:700;color:var(--cyan);opacity:.2;line-height:1}
+.tl-num{display:block;font-family:Georgia,serif;font-size:1.4rem;color:var(--cyan);margin-bottom:.5rem;font-weight:400}
+.tl-step h3{font-family:Georgia,serif;font-size:1rem;color:var(--text-bright);margin-bottom:.4rem;font-weight:400}
+.tl-step p{color:var(--text-dim);font-size:.8rem;line-height:1.5}
+.tl-tag{display:inline-block;margin-top:.6rem;padding:.2rem .6rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(0,229,255,.1);color:var(--cyan)}
+.timeline-connector{position:absolute;top:50%;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--orange));transform:translateY(-50%);z-index:0}
+.timeline-dot{position:absolute;top:50%;width:12px;height:12px;background:var(--cyan);border-radius:50%;transform:translate(-50%,-50%);z-index:2;box-shadow:0 0 10px var(--cyan)}
 
 /* CASE STUDIES */
 .case-grid{display:grid;gap:3rem}
@@ -279,14 +286,48 @@ footer p{color:var(--text-dim);font-size:.8rem}
       <h2 class="section-title">How We Work Together</h2>
       <p class="section-subtitle">Seven steps from first call to launch — and I stay on for maintenance afterward.</p>
     </div>
-    <div class="timeline">
-      <div class="tl-step"><span class="tl-num">01.</span><h3>Discovery Call</h3><p>20-60 minute call. We talk about your vision, goals, growth plans, preferred style, and what you need from the site.</p><span class="tl-tag">Day 1</span></div>
-      <div class="tl-step"><span class="tl-num">02.</span><h3>Proposal & Deposit</h3><p>I send a scope, timeline, and price. You pay a 50% deposit to lock in the project. Transparent, no surprises.</p><span class="tl-tag">Day 1</span></div>
-      <div class="tl-step"><span class="tl-num">03.</span><h3>Content Gathering</h3><p>You provide photos, text, branding, and platform access. I can also source images and help with copy if needed.</p><span class="tl-tag">Days 1-2</span></div>
-      <div class="tl-step"><span class="tl-num">04.</span><h3>Build</h3><p>I design and build your site — on Wix, Squarespace, WordPress, Shopify, or custom HTML/CSS. You get editor access from the start.</p><span class="tl-tag">Days 2-5</span></div>
-      <div class="tl-step"><span class="tl-num">05.</span><h3>Review & Revise</h3><p>You review the site, give feedback, and I make changes until you're happy. Typically one round of revisions is all it takes.</p><span class="tl-tag">Days 5-6</span></div>
-      <div class="tl-step"><span class="tl-num">06.</span><h3>Launch</h3><p>Site goes live. Final payment is due. I handle the technical side — domain connection, hosting, or platform publishing.</p><span class="tl-tag">Day 7</span></div>
-      <div class="tl-step"><span class="tl-num">07.</span><h3>Ongoing Support</h3><p>I stay on as your web person. Content updates, design tweaks, maintenance — you text me, I handle it. Monthly retainer available.</p><span class="tl-tag">Monthly</span></div>
+    <div class="wave-timeline">
+      <svg class="wave-svg" viewBox="0 0 1200 200" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00e5ff" stop-opacity="0.6"/>
+            <stop offset="50%" stop-color="#00d4aa" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#ff6b35" stop-opacity="0.6"/>
+          </linearGradient>
+          <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00e5ff"/>
+            <stop offset="100%" stop-color="#ff6b35"/>
+          </linearGradient>
+        </defs>
+        <!-- Flowing wave paths -->
+        <path d="M0,100 Q150,40 300,100 T600,100 T900,100 T1200,100" stroke="url(#waveGrad)" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M0,100 Q150,160 300,100 T600,100 T900,100 T1200,100" stroke="url(#waveGrad)" stroke-width="2" fill="none" opacity="0.3"/>
+        <path d="M0,100 Q150,60 300,100 T600,100 T900,100 T1200,100" stroke="url(#waveGrad)" stroke-width="1.5" fill="none" opacity="0.2"/>
+        <path d="M0,100 Q150,140 300,100 T600,100 T900,100 T1200,100" stroke="url(#waveGrad)" stroke-width="1.5" fill="none" opacity="0.2"/>
+        <!-- Center timeline line -->
+        <line x1="0" y1="100" x2="1150" y2="100" stroke="url(#lineGrad)" stroke-width="2"/>
+        <!-- Arrow at end -->
+        <polygon points="1150,100 1140,95 1140,105" fill="#ff6b35"/>
+      </svg>
+      <div class="timeline-connector"></div>
+      <div class="timeline-dots" style="position:absolute;top:50%;left:0;right:0;height:0;z-index:2">
+        <div class="timeline-dot" style="left:7.14%"></div>
+        <div class="timeline-dot" style="left:21.43%"></div>
+        <div class="timeline-dot" style="left:35.71%"></div>
+        <div class="timeline-dot" style="left:50%"></div>
+        <div class="timeline-dot" style="left:64.29%"></div>
+        <div class="timeline-dot" style="left:78.57%"></div>
+        <div class="timeline-dot" style="left:92.86%"></div>
+      </div>
+      <div class="timeline-steps" style="counter-reset:step">
+        <div class="tl-step"><span class="tl-num">01.</span><h3>Discovery Call</h3><p>20-60 min call. Vision, goals, style, content access.</p><span class="tl-tag">Day 1</span></div>
+        <div class="tl-step"><span class="tl-num">02.</span><h3>Proposal & Deposit</h3><p>Scope, timeline, price. 50% deposit to lock in.</p><span class="tl-tag">Day 1</span></div>
+        <div class="tl-step"><span class="tl-num">03.</span><h3>Content Gathering</h3><p>Photos, text, branding, platform access provided.</p><span class="tl-tag">Days 1-2</span></div>
+        <div class="tl-step"><span class="tl-num">04.</span><h3>Build</h3><p>Design & build on Wix, Squarespace, WordPress, or custom.</p><span class="tl-tag">Days 2-5</span></div>
+        <div class="tl-step"><span class="tl-num">05.</span><h3>Review & Revise</h3><p>You review, give feedback, I make changes.</p><span class="tl-tag">Days 5-6</span></div>
+        <div class="tl-step"><span class="tl-num">06.</span><h3>Launch</h3><p>Site goes live. Final payment due.</p><span class="tl-tag">Day 7</span></div>
+        <div class="tl-step"><span class="tl-num">07.</span><h3>Ongoing Support</h3><p>Monthly retainer for updates & maintenance.</p><span class="tl-tag">Monthly</span></div>
+      </div>
     </div>
   </div>
 </section>
