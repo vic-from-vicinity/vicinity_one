@@ -1,644 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vicinity Web Design | Websites for Local Businesses</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vicinity Creative — Web Design, Graphic Design & Web Apps</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#08080c;--bg2:#0e0e14;--bg3:#14141c;--border:#1e1e2a;--gold:#d4a853;--accent:#e94560;--accent2:#667eea;--accent3:#5a9e6f;--text:#c4c4cc;--text-dim:#6b6b78;--text-bright:#f0f0f5;--shadow:0 4px 30px rgba(0,0,0,.5)}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.7;color:var(--text);background:var(--bg)}
 
-        :root {
-            --primary: #1a1a2e;
-            --accent: #e94560;
-            --accent-hover: #d13650;
-            --cream: #f8f9fa;
-            --text: #2d3748;
-            --text-light: #718096;
-            --white: #ffffff;
-            --shadow: 0 10px 40px rgba(0,0,0,0.08);
-            --shadow-hover: 0 20px 60px rgba(0,0,0,0.12);
-        }
+nav{background:rgba(8,8,12,.95);backdrop-filter:blur(20px);padding:1.2rem 0;position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid var(--border)}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
+.logo{color:var(--text-bright);font-size:1.4rem;font-weight:800;text-decoration:none;letter-spacing:-.5px}
+.nav-links{display:flex;list-style:none;gap:2.5rem}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-weight:500;font-size:.9rem;transition:color .3s}
+.nav-links a:hover{color:var(--text-bright)}
+.nav-cta{background:var(--accent);color:#fff;padding:.65rem 1.6rem;border-radius:50px;text-decoration:none;font-weight:600;font-size:.85rem;transition:all .3s}
+.nav-cta:hover{filter:brightness(1.15);transform:translateY(-2px)}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* HERO */
+.hero{padding:10rem 2rem 6rem;margin-top:60px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(212,168,83,.04) 0%,transparent 70%);border-radius:50%}
+.hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.015;pointer-events:none;z-index:0}
+.hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
+.hero-label{display:inline-block;background:rgba(212,168,83,.08);color:var(--gold);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;border:1px solid rgba(212,168,83,.15)}
+.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:400;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-1px;color:var(--text-bright)}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero p{font-size:1.1rem;color:var(--text-dim);margin-bottom:2.5rem;max-width:550px;margin-left:auto;margin-right:auto;line-height:1.8}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{padding:1rem 2.5rem;border-radius:50px;font-weight:600;text-decoration:none;transition:all .3s;font-size:1rem}
+.btn-primary{background:var(--accent);color:#fff;border:2px solid var(--accent)}
+.btn-primary:hover{filter:brightness(1.15);transform:translateY(-3px);box-shadow:0 10px 30px rgba(233,69,96,.2)}
+.btn-outline{background:transparent;color:var(--text-bright);border:2px solid var(--border)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-gold{background:var(--gold);color:var(--bg);border:2px solid var(--gold);font-weight:700}
+.btn-gold:hover{filter:brightness(1.1);transform:translateY(-3px)}
 
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: var(--white);
-        }
+/* SECTION FLOW */
+section{padding:5rem 2rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-label{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;margin-bottom:1rem;display:block}
+.section-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:var(--text-bright);margin-bottom:1rem;letter-spacing:-.5px;line-height:1.2}
+.section-subtitle{color:var(--text-dim);font-size:1.05rem;max-width:560px;line-height:1.8}
+.section-head{margin-bottom:3.5rem}
+.section-head.center{text-align:center}
+.section-head.center .section-subtitle{margin:0 auto}
 
-        /* Navigation */
-        nav {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            padding: 1.2rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+/* WORK - EMBEDDED DEMOS */
+#work{background:var(--bg2)}
+.demo-tabs{display:flex;justify-content:center;gap:.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.demo-tab{padding:.8rem 1.5rem;border-radius:10px;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);cursor:pointer;font-weight:600;font-size:.85rem;transition:all .3s;font-family:inherit}
+.demo-tab:hover{border-color:var(--text-dim);color:var(--text-bright)}
+.demo-tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
+.demo-frame-container{background:var(--bg3);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);margin-bottom:1rem}
+.demo-toolbar{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;background:#0c0c12;border-bottom:1px solid var(--border)}
+.demo-toolbar .dot{width:10px;height:10px;border-radius:50%}
+.demo-toolbar .dot:nth-child(1){background:#ff5f56}
+.demo-toolbar .dot:nth-child(2){background:#ffbd2e}
+.demo-toolbar .dot:nth-child(3){background:#27c93f}
+.demo-toolbar .url-box{flex:1;text-align:center;color:var(--text-dim);font-size:.7rem;padding:.25rem .8rem;background:#050508;border-radius:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.demo-toolbar .url-action{padding:.35rem .9rem;border-radius:6px;background:transparent;border:1px solid var(--border);color:var(--text-dim);font-size:.7rem;text-decoration:none;transition:all .3s;font-family:inherit}
+.demo-toolbar .url-action:hover{background:var(--border);color:var(--text-bright)}
+.demo-iframe-wrap{position:relative;height:550px;overflow:hidden;background:#fff}
+.demo-iframe-wrap iframe{width:100%;height:100%;border:none}
+.zoom-bar{text-align:center;margin:.8rem 0 1.5rem}
+.zoom-bar button{padding:.4rem 1rem;margin:0 .2rem;border-radius:6px;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);cursor:pointer;font-size:.75rem;transition:all .3s;font-family:inherit}
+.zoom-bar button.zoom-active{background:var(--accent);border-color:var(--accent);color:#fff}
+.zoom-bar button:hover:not(.zoom-active){border-color:var(--text-dim);color:var(--text-bright)}
+.demo-feature-tags{display:flex;justify-content:center;gap:.5rem;flex-wrap:wrap;margin-top:1rem}
+.demo-feature-tags span{padding:.3rem .8rem;border-radius:50px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);font-size:.75rem}
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+/* SERVICES */
+#services{background:var(--bg)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.svc-card{padding:2.5rem;border-radius:16px;background:var(--bg3);border:1px solid var(--border);transition:all .3s;position:relative;overflow:hidden}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
+.svc-card:hover{transform:translateY(-4px);border-color:var(--accent)}.svc-card:hover::before{opacity:1}
+.svc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem}
+.svc-card h3{font-family:Georgia,'Times New Roman',serif;font-size:1.3rem;color:var(--text-bright);margin-bottom:.6rem;font-weight:400}
+.svc-card p{color:var(--text-dim);font-size:.9rem;line-height:1.7}
+.svc-card ul{list-style:none;margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
+.svc-card ul li{padding:.25rem .7rem;border-radius:50px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);font-size:.75rem}
+.ic-web{background:linear-gradient(135deg,var(--accent),#764ba2)}
+.ic-gd{background:linear-gradient(135deg,var(--accent2),#764ba2)}
+.ic-app{background:linear-gradient(135deg,var(--accent3),#4a90a4)}
 
-        .logo {
-            color: var(--primary);
-            font-size: 1.5rem;
-            font-weight: 800;
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
+/* PROCESS - CUSTOM TIMELINE */
+#process{background:var(--bg2)}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;counter-reset:step}
+.tl-step{position:relative;padding:2rem 1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:14px;counter-increment:step;transition:all .3s}
+.tl-step:hover{transform:translateY(-4px);border-color:var(--gold)}
+.tl-step::before{content:counter(step,decimal-leading-zero);position:absolute;top:-.8rem;right:1rem;font-family:Georgia,serif;font-size:3rem;font-weight:700;color:var(--gold);opacity:.15;line-height:1}
+.tl-num{display:block;font-family:Georgia,serif;font-size:1.8rem;color:var(--gold);margin-bottom:.8rem;font-weight:400}
+.tl-step h3{font-family:Georgia,serif;font-size:1.1rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
+.tl-step p{color:var(--text-dim);font-size:.85rem;line-height:1.6}
+.tl-tag{display:inline-block;margin-top:.8rem;padding:.2rem .6rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(212,168,83,.1);color:var(--gold)}
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
+/* CASE STUDIES */
+.case-grid{display:grid;gap:3rem}
+.case-card{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;padding:3rem;background:var(--bg3);border-radius:20px;border:1px solid var(--border);transition:all .3s}
+.case-card:hover{border-color:var(--gold)}
+.case-card.featured{border-color:var(--accent);position:relative}
+.case-card.featured::before{content:'REAL CLIENT';position:absolute;top:-.7rem;left:2rem;background:var(--accent);color:#fff;padding:.25rem 1rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:2px}
+.case-img{height:240px;background:var(--bg2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:3rem;border:1px solid var(--border)}
+.case-content h3{font-family:Georgia,serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
+.case-client{color:var(--gold);font-weight:600;font-size:.9rem;margin-bottom:1rem;display:block}
+.case-content p{color:var(--text-dim);font-size:.95rem;line-height:1.7;margin-bottom:1rem}
+.case-result{display:flex;gap:1.5rem;margin-top:1.5rem}
+.case-stat{text-align:center}
+.case-stat .val{font-family:Georgia,serif;font-size:2rem;color:var(--gold);font-weight:400}
+.case-stat .lbl{font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
 
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-        }
+/* PRICING */
+#pricing{background:var(--bg)}
+.price-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.price-card{padding:3rem 2rem;background:var(--bg3);border:1px solid var(--border);border-radius:20px;text-align:center;transition:all .3s}
+.price-card:hover{transform:translateY(-6px);border-color:var(--gold)}
+.price-card.featured{border-color:var(--accent);position:relative;transform:scale(1.03)}
+.price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-.7rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.25rem 1rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:2px;white-space:nowrap}
+.price-card h3{font-family:Georgia,serif;font-size:1.4rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
+.price-amt{font-family:Georgia,serif;font-size:3rem;color:var(--text-bright);font-weight:400;margin:1rem 0;line-height:1}
+.price-amt span{font-size:1rem;color:var(--text-dim)}
+.price-card ul{list-style:none;margin:1.5rem 0;text-align:left}
+.price-card ul li{padding:.5rem 0;color:var(--text-dim);font-size:.9rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
+.price-card ul li::before{content:'\2713';color:var(--accent);font-weight:700}
+.price-card .btn{margin-top:1rem;width:100%}
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
+/* CONTACT / CTA */
+#contact{text-align:center;position:relative;overflow:hidden}
+#contact::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(233,69,96,.04) 0%,transparent 70%);border-radius:50%}
+#contact .section-inner{position:relative;z-index:1}
+#contact h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);color:var(--text-bright);margin-bottom:1rem;font-weight:400}
+#contact p{color:var(--text-dim);font-size:1.1rem;margin-bottom:2rem}
+.contact-row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1rem}
+.contact-chip{padding:.8rem 1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:50px;color:var(--text);font-size:.9rem;display:flex;align-items:center;gap:.5rem}
 
-        .nav-cta {
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.7rem 1.8rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
+/* FOOTER */
+footer{background:var(--bg2);padding:2rem;text-align:center;border-top:1px solid var(--border)}
+footer p{color:var(--text-dim);font-size:.8rem}
 
-        .nav-cta:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
+/* UTILITIES */
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, #2d3561 100%);
-            color: var(--white);
-            padding: 10rem 2rem 6rem;
-            margin-top: 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(233, 69, 96, 0.1);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-label {
-            display: inline-block;
-            background: rgba(255,255,255,0.15);
-            color: var(--white);
-            padding: 0.4rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.3);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--white);
-            border: 2px solid rgba(255,255,255,0.3);
-        }
-
-        .btn-outline:hover {
-            background: var(--white);
-            color: var(--primary);
-            border-color: var(--white);
-        }
-
-        /* Work Section */
-        .work {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            background: var(--cream);
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            color: var(--accent);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .section-subtitle {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .work-card {
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.4s;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .work-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .work-image {
-            height: 220px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .work-image::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 60%;
-            background: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
-        }
-
-        .work-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--white);
-            color: var(--primary);
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            z-index: 2;
-        }
-
-        .work-details {
-            padding: 2rem;
-        }
-
-        .work-tag {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
-        }
-
-        .work-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .work-desc {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .work-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--accent);
-            font-weight: 600;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
-
-        /* Services */
-        .services {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            padding: 2rem;
-            border-radius: 16px;
-            background: var(--white);
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--accent), #764ba2);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-weight: 700;
-        }
-
-        .service-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--primary) 0%, #2d3561 100%);
-            color: var(--white);
-            padding: 5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(233, 69, 96, 0.1);
-            border-radius: 50%;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta h2 {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            letter-spacing: -1px;
-        }
-
-        .cta p {
-            font-size: 1.15rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: rgba(255,255,255,0.6);
-            padding: 3rem 2rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-logo {
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: 800;
-            text-decoration: none;
-            letter-spacing: -1px;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            max-width: 1200px;
-            margin: 0 auto;
-            font-size: 0.9rem;
-        }
-
-        /* Fade In */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .work-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-    </style>
+@media(max-width:768px){
+  .hero h1{font-size:2.2rem}
+  .nav-links{display:none}
+  .case-card{grid-template-columns:1fr;padding:2rem}
+  .demo-iframe-wrap{height:380px}
+  .price-card.featured{transform:none}
+  .hero-buttons{flex-direction:column;align-items:center}
+}
+</style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">Vicinity Web Design</a>
-            <ul class="nav-links">
-                <li><a href="#work">Work</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#contact" class="nav-cta">Get Started</a>
-        </div>
-    </nav>
 
-    <section class="hero">
-        <div class="hero-content">
-            <span class="hero-label">Web Design & Development</span>
-            <h1>Websites That Help <span>Local Businesses</span> Grow</h1>
-            <p>Custom, modern websites designed to attract customers, build trust, and turn visitors into clients. No templates. No fluff. Just results.</p>
-            <div class="hero-buttons">
-                <a href="#work" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-outline">Let's Talk</a>
-            </div>
-        </div>
-    </section>
+<nav>
+  <div class="nav-container">
+    <a href="#" class="logo">Vicinity Creative</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#cases">Case Studies</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get Started</a>
+  </div>
+</nav>
 
-    <section id="work" class="work">
-        <div class="section-header fade-in">
-            <span class="section-label">Portfolio</span>
-            <h2 class="section-title">Recent Work</h2>
-            <p class="section-subtitle">Three demo sites built to show what's possible. Each one tailored to a different industry and audience.</p>
-        </div>
-        <div class="work-grid">
-            <a href="real-estate-demo/index.html" class="work-card fade-in" target="_blank">
-                <div class="work-image">
-                    &#127968;
-                    <span class="work-badge">Demo</span>
-                </div>
-                <div class="work-details">
-                    <div class="work-tag">Real Estate</div>
-                    <div class="work-name">Vicinity Realty</div>
-                    <p class="work-desc">Premium real estate landing page with parallax hero, property listings, agent profile, testimonials, and contact form.</p>
-                    <span class="work-link">View Site &rarr;</span>
-                </div>
-            </a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-label">Web Design Studio</span>
+    <h1>Digital products with <em>intention</em> — not templates</h1>
+    <p>Custom websites, branding, and web-based tools built from scratch. Every project is hand-coded, thoughtfully designed, and optimized to convert visitors into customers.</p>
+    <div class="hero-buttons">
+      <a href="#work" class="btn btn-primary">See the Work</a>
+      <a href="#process" class="btn btn-outline">How It Works</a>
+    </div>
+  </div>
+</section>
 
-            <a href="burger-demo/index.html" class="work-card fade-in" target="_blank">
-                <div class="work-image" style="background: linear-gradient(135deg, #1a1a1a, #ff6b35);">
-                    &#127828;
-                    <span class="work-badge">Demo</span>
-                </div>
-                <div class="work-details">
-                    <div class="work-tag">Restaurant</div>
-                    <div class="work-name">Vic's Diner</div>
-                    <p class="work-desc">Bold burger restaurant site with menu cards, hours, location info, reviews, and online ordering CTA.</p>
-                    <span class="work-link">View Site &rarr;</span>
-                </div>
-            </a>
+<!-- WORK -->
+<section id="work">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Live Previews</h2>
+      <p class="section-subtitle">Click a tab to preview each site inline. Real work, no mockups.</p>
+    </div>
 
-            <a href="medical-demo/index.html" class="work-card fade-in" target="_blank">
-                <div class="work-image" style="background: linear-gradient(135deg, #1e3a5f, #4a90a4);">
-                    &#10010;
-                    <span class="work-badge">Demo</span>
-                </div>
-                <div class="work-details">
-                    <div class="work-tag">Medical</div>
-                    <div class="work-name">Vicinity Family Medicine</div>
-                    <p class="work-desc">Clean, trustworthy medical practice site with services, doctor bio, appointment booking, and insurance info.</p>
-                    <span class="work-link">View Site &rarr;</span>
-                </div>
-            </a>
-        </div>
-    </section>
+    <div class="demo-tabs">
+      <button class="demo-tab active" onclick="showDemo(0)">Real Estate</button>
+      <button class="demo-tab" onclick="showDemo(1)">Restaurant</button>
+      <button class="demo-tab" onclick="showDemo(2)">Medical</button>
+      <button class="demo-tab" onclick="showDemo(3)">Psychic Medium</button>
+    </div>
 
-    <section id="services" class="services">
-        <div class="section-header fade-in">
-            <span class="section-label">What I Do</span>
-            <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">Everything you need to get online and start attracting customers.</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">&#128187;</div>
-                <h3>Custom Website Design</h3>
-                <p>Unique, hand-coded websites built from scratch. No generic templates — every site is designed to match your brand and goals.</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">&#128241;</div>
-                <h3>Mobile-First Development</h3>
-                <p>Every site looks and works perfectly on phones, tablets, and desktops. Over 60% of traffic is mobile — I make sure you're ready.</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">&#128269;</div>
-                <h3>SEO Optimization</h3>
-                <p>Built-in search engine optimization so customers can actually find you on Google. Fast loading, clean code, proper structure.</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">&#128172;</div>
-                <h3>Contact Forms & Leads</h3>
-                <p>Contact forms, appointment booking, quote requests — whatever gets customers to reach out. Integrated and easy to use.</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">&#127775;</div>
-                <h3>Social Proof Integration</h3>
-                <p>Testimonials, reviews, stats, trust badges — the elements that turn skeptical visitors into paying customers.</p>
-            </div>
-            <div class="service-card fade-in">
-                <div class="service-icon">&#128295;</div>
-                <h3>Ongoing Support</h3>
-                <p>Need updates? New photos? Text changes? I'm here to help keep your site fresh and working after launch.</p>
-            </div>
-        </div>
-    </section>
+    <div class="demo-frame-container">
+      <div class="demo-toolbar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="url-box" id="demourl">real-estate-demo-xi-eight.vercel.app</span>
+        <a id="demolink" href="https://real-estate-demo-xi-eight.vercel.app" target="_blank" class="url-action">Open &nearr;</a>
+      </div>
+      <div class="demo-iframe-wrap" id="demowrap">
+        <iframe id="demoframe" src="https://real-estate-demo-xi-eight.vercel.app"></iframe>
+      </div>
+    </div>
+    <div class="zoom-bar">
+      <button class="zoom-active" onclick="zoomFrame(550)">Desktop</button>
+      <button onclick="zoomFrame(420)">Tablet</button>
+      <button onclick="zoomFrame(340)">Phone</button>
+    </div>
+    <div class="demo-feature-tags" id="demotags">
+      <span>Parallax Hero</span><span>Property Listings</span><span>Agent Profile</span><span>Testimonials</span><span>Contact Form</span><span>Scroll Animations</span>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="cta">
-        <div class="cta-content fade-in">
-            <h2>Ready for a Website That Works?</h2>
-            <p>Let's build something that helps your business grow. I'll handle the design, coding, and setup — you focus on what you do best.</p>
-            <a href="mailto:hello@vicinityweb.design" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.1rem 3rem;">Get In Touch</a>
-        </div>
-    </section>
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Services</span>
+      <h2 class="section-title">What I Offer</h2>
+      <p class="section-subtitle">Everything your business needs to look professional and work better online.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card">
+        <div class="svc-icon ic-web" style="color:#fff">&#128187;</div>
+        <h3>Custom Website Design</h3>
+        <p>Hand-coded, mobile-first websites built on Wix, Squarespace, WordPress, Shopify, or pure HTML/CSS. No page builders, no generic templates.</p>
+        <ul><li>Landing Pages</li><li>Multi-Page Sites</li><li>E-Commerce</li><li>SEO Built-In</li></ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-gd" style="color:#fff">&#127912;</div>
+        <h3>Graphic Design</h3>
+        <p>Logo design, brand identity, social media graphics, menus, flyers, and print materials that give your business a polished, professional look.</p>
+        <ul><li>Logo & Brand Kit</li><li>Social Graphics</li><li>Print Materials</li><li>Business Cards</li></ul>
+      </div>
+      <div class="svc-card">
+        <div class="svc-icon ic-app" style="color:#fff">&#128241;</div>
+        <h3>Web-Based Apps</h3>
+        <p>Custom booking systems, quote calculators, client portals, order forms — interactive tools that automate your workflow and add real value.</p>
+        <ul><li>Booking Systems</li><li>Calculators</li><li>Order Forms</li><li>Client Portals</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer>
-        <div class="footer-content">
-            <a href="#" class="footer-logo">Vicinity Web Design</a>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Vicinity Web Design. Built with &#128293; for local businesses.</p>
-        </div>
-    </footer>
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Process</span>
+      <h2 class="section-title">How We Work Together</h2>
+      <p class="section-subtitle">Seven steps from first call to launch — and I stay on for maintenance afterward.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-step"><span class="tl-num">01.</span><h3>Discovery Call</h3><p>20-60 minute call. We talk about your vision, goals, growth plans, preferred style, and what you need from the site.</p><span class="tl-tag">Day 1</span></div>
+      <div class="tl-step"><span class="tl-num">02.</span><h3>Proposal & Deposit</h3><p>I send a scope, timeline, and price. You pay a 50% deposit to lock in the project. Transparent, no surprises.</p><span class="tl-tag">Day 1</span></div>
+      <div class="tl-step"><span class="tl-num">03.</span><h3>Content Gathering</h3><p>You provide photos, text, branding, and platform access. I can also source images and help with copy if needed.</p><span class="tl-tag">Days 1-2</span></div>
+      <div class="tl-step"><span class="tl-num">04.</span><h3>Build</h3><p>I design and build your site — on Wix, Squarespace, WordPress, Shopify, or custom HTML/CSS. You get editor access from the start.</p><span class="tl-tag">Days 2-5</span></div>
+      <div class="tl-step"><span class="tl-num">05.</span><h3>Review & Revise</h3><p>You review the site, give feedback, and I make changes until you're happy. Typically one round of revisions is all it takes.</p><span class="tl-tag">Days 5-6</span></div>
+      <div class="tl-step"><span class="tl-num">06.</span><h3>Launch</h3><p>Site goes live. Final payment is due. I handle the technical side — domain connection, hosting, or platform publishing.</p><span class="tl-tag">Day 7</span></div>
+      <div class="tl-step"><span class="tl-num">07.</span><h3>Ongoing Support</h3><p>I stay on as your web person. Content updates, design tweaks, maintenance — you text me, I handle it. Monthly retainer available.</p><span class="tl-tag">Monthly</span></div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+<!-- CASE STUDIES -->
+<section id="cases" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Case Studies</span>
+      <h2 class="section-title">Real Work, Real Results</h2>
+    </div>
+    <div class="case-grid">
+      <div class="case-card featured">
+        <div class="case-img" style="background:linear-gradient(135deg,#1a0a2e,#2d1b4e);font-size:1.2rem;color:rgba(255,255,255,.7);text-align:center;padding:2rem;line-height:1.6">
+          <strong style="font-family:Georgia,serif;font-size:1.6rem;display:block;margin-bottom:.5rem">Justine Marie</strong>
+          International Psychic Medium
+        </div>
+        <div class="case-content">
+          <span class="case-client">Justine Marie — Psychic Medium & Reiki Master</span>
+          <h3>From DIY to Professional</h3>
+          <p>Justine is an internationally recognized psychic medium serving clients worldwide. She had a Wix site that didn't match her presence or generate consistent bookings. She needed a complete redesign — something intuitive, trustworthy, and aligned with her brand.</p>
+          <p>I rebuilt her site on Wix with a clean, modern design that reflects her spiritual practice. Integrated booking, service descriptions, and a direct, honest tone that matches how she works with clients. She now manages the site herself with editor access — but I'm still on call for updates and maintenance.</p>
+          <div class="case-result">
+            <div class="case-stat"><div class="val">Wix</div><div class="lbl">Platform</div></div>
+            <div class="case-stat"><div class="val">Full</div><div class="lbl">Redesign</div></div>
+            <div class="case-stat"><div class="val">Active</div><div class="lbl">Maintenance</div></div>
+          </div>
+        </div>
+      </div>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
+      <div class="case-card">
+        <div class="case-img" style="background:linear-gradient(135deg,#1a1a2e,#2d3561)">&#127968;</div>
+        <div class="case-content">
+          <span class="case-client">Demo — Real Estate</span>
+          <h3>Vicinity Realty</h3>
+          <p>A premium real estate landing page with parallax hero, live property listings, agent profile, testimonials, and contact form. Built to convert first-time buyers and sellers in a competitive market.</p>
+          <div class="case-result">
+            <div class="case-stat"><div class="val">HTML/CSS</div><div class="lbl">Built With</div></div>
+            <div class="case-stat"><div class="val">Parallax</div><div class="lbl">Feature</div></div>
+            <div class="case-stat"><div class="val">100</div><div class="lbl">Performance</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-img" style="background:linear-gradient(135deg,#1a1a1a,#ff6b35)">&#127828;</div>
+        <div class="case-content">
+          <span class="case-client">Demo — Restaurant</span>
+          <h3>Vic's Diner</h3>
+          <p>A bold, energetic burger restaurant site with full menu cards, hours & location, star-rated reviews, social links, and an online ordering CTA. Designed to drive foot traffic and delivery orders.</p>
+          <div class="case-result">
+            <div class="case-stat"><div class="val">HTML/CSS</div><div class="lbl">Built With</div></div>
+            <div class="case-stat"><div class="val">Menu</div><div class="lbl">Feature</div></div>
+            <div class="case-stat"><div class="val">100</div><div class="lbl">Performance</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-img" style="background:linear-gradient(135deg,#1e3a5f,#4a90a4)">&#10010;</div>
+        <div class="case-content">
+          <span class="case-client">Demo — Medical Practice</span>
+          <h3>Vicinity Family Medicine</h3>
+          <p>A clean, trustworthy medical practice site with service categories, doctor bio with credentials, patient testimonials, appointment booking form, and insurance accepted — built to inspire confidence.</p>
+          <div class="case-result">
+            <div class="case-stat"><div class="val">HTML/CSS</div><div class="lbl">Built With</div></div>
+            <div class="case-stat"><div class="val">Booking</div><div class="lbl">Feature</div></div>
+            <div class="case-stat"><div class="val">100</div><div class="lbl">Performance</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Transparent, Upfront</h2>
+      <p class="section-subtitle">50% deposit to start, remainder on launch. Custom quotes available for larger projects.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>Landing Page</h3>
+        <div class="price-amt">$1,200<span></span></div>
+        <ul>
+          <li>Single-page design</li>
+          <li>Mobile responsive</li>
+          <li>Contact form</li>
+          <li>Basic SEO setup</li>
+          <li>1 revision round</li>
+          <li>1 week delivery</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Start Project</a>
+      </div>
+      <div class="price-card featured">
+        <h3>Full Website</h3>
+        <div class="price-amt">$1,500<span>+</span></div>
+        <ul>
+          <li>Multi-page design</li>
+          <li>Mobile responsive</li>
+          <li>Contact & booking forms</li>
+          <li>Full SEO optimization</li>
+          <li>2 revision rounds</li>
+          <li>1-2 week delivery</li>
+          <li>Editor access included</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">Start Project</a>
+      </div>
+      <div class="price-card">
+        <h3>Site + Branding</h3>
+        <div class="price-amt">$2,500<span>+</span></div>
+        <ul>
+          <li>Full website (as above)</li>
+          <li>Logo design</li>
+          <li>Brand color palette</li>
+          <li>Graphic design assets</li>
+          <li>Social media templates</li>
+          <li>2-3 week delivery</li>
+        </ul>
+        <a href="#contact" class="btn btn-outline">Start Project</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <h2>Ready to Build?</h2>
+    <p>Text, call, or email. I'll respond within 24 hours — usually same day.</p>
+    <div class="contact-row">
+      <div class="contact-chip">&#9993; hello@vicinityweb.design</div>
+      <div class="contact-chip">&#9742; (832) 709-1366</div>
+    </div>
+    <div style="margin-top:2.5rem">
+      <a href="mailto:hello@vicinityweb.design" class="btn btn-gold" style="font-size:1.1rem;padding:1.1rem 3rem">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Vicinity Creative. Built with intention — not templates.</p>
+</footer>
+
+<script>
+const demos = [
+  {url:'https://real-estate-demo-xi-eight.vercel.app',domain:'real-estate-demo-xi-eight.vercel.app',tags:['Parallax Hero','Property Listings','Agent Profile','Testimonials','Contact Form','Scroll Animations']},
+  {url:'https://burger-demo-mu.vercel.app',domain:'burger-demo-mu.vercel.app',tags:['Menu Cards','Hours & Location','Customer Reviews','Order CTA','Photo Gallery','Bold Branding']},
+  {url:'https://medical-demo-five.vercel.app',domain:'medical-demo-five.vercel.app',tags:['Doctor Bio','Service Categories','Appointment Booking','Insurance Info','Patient Reviews','Trust Signals']},
+  {url:'https://justine-marie.com',domain:'justine-marie.com',tags:['Wix Platform','Booking System','Service Descriptions','Brand Refresh','Client Managed','Ongoing Support']}
+];
+let cur=0;
+function showDemo(i){
+  cur=i;const d=demos[i];
+  document.querySelectorAll('.demo-tab').forEach((t,j)=>t.classList.toggle('active',j===i));
+  document.getElementById('demoframe').src=d.url;
+  document.getElementById('demourl').textContent=d.domain;
+  document.getElementById('demolink').href=d.url;
+  document.getElementById('demotags').innerHTML=d.tags.map(t=>`<span>${t}</span>`).join('');
+}
+function zoomFrame(h){document.getElementById('demowrap').style.height=h+'px';document.querySelectorAll('.zoom-bar button').forEach(b=>{b.classList.toggle('zoom-active',parseInt(b.textContent)===h||(b.textContent==='Desktop'&&h===550)||(b.textContent==='Tablet'&&h===420)||(b.textContent==='Phone'&&h===340))})}
+
+const obs=new IntersectionObserver((e)=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
 </body>
 </html>
