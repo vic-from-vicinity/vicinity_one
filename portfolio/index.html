@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vicinity Web + Design — Custom Websites, Graphic Design & Web Apps</title>
+<title>Vicinty Web & Creative — Custom Websites, Graphic Design & Web Apps</title>
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#08080c;--bg2:#0e0e14;--bg3:#14141c;--border:#1e1e2a;--navy:#0a1628;--teal:#00d4aa;--gold:#d4a853;--accent:#e94560;--accent2:#667eea;--accent3:#5a9e6f;--text:#c4c4cc;--text-dim:#6b6b78;--text-bright:#f0f0f5;--shadow:0 4px 30px rgba(0,0,0,.5)}
+:root{--bg:#08080c;--bg2:#0e0e14;--bg3:#14141c;--border:#1e1e2a;--navy:#0a1628;--teal:#00d4aa;--cyan:#00e5ff;--orange:#ff6b35;--amber:#ffb347;--gold:#d4a853;--accent:#e94560;--accent2:#667eea;--accent3:#5a9e6f;--text:#c4c4cc;--text-dim:#6b6b78;--text-bright:#f0f0f5;--shadow:0 4px 30px rgba(0,0,0,.5)}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.7;color:var(--text);background:var(--bg)}
 
@@ -21,12 +21,12 @@ nav{background:rgba(8,8,12,.95);backdrop-filter:blur(20px);padding:1.2rem 0;posi
 
 /* HERO */
 .hero{padding:10rem 2rem 6rem;margin-top:60px;position:relative;overflow:hidden;text-align:center}
-.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(212,168,83,.04) 0%,transparent 70%);border-radius:50%}
+.hero::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(0,229,255,.03) 0%,transparent 70%);border-radius:50%}
 .hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.015;pointer-events:none;z-index:0}
 .hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
-.hero-label{display:inline-block;background:rgba(212,168,83,.08);color:var(--gold);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;border:1px solid rgba(212,168,83,.15)}
+.hero-label{display:inline-block;background:rgba(0,229,255,.08);color:var(--cyan);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;border:1px solid rgba(0,229,255,.15)}
 .hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:400;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-1px;color:var(--text-bright)}
-.hero h1 em{font-style:italic;color:var(--gold)}
+.hero h1 em{font-style:italic;color:var(--cyan)}
 .hero p{font-size:1.1rem;color:var(--text-dim);margin-bottom:2.5rem;max-width:550px;margin-left:auto;margin-right:auto;line-height:1.8}
 .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
 .btn{padding:1rem 2.5rem;border-radius:50px;font-weight:600;text-decoration:none;transition:all .3s;font-size:1rem}
@@ -40,7 +40,7 @@ nav{background:rgba(8,8,12,.95);backdrop-filter:blur(20px);padding:1.2rem 0;posi
 /* SECTION FLOW */
 section{padding:5rem 2rem}
 .section-inner{max-width:1200px;margin:0 auto}
-.section-label{color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;margin-bottom:1rem;display:block}
+.section-label{color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;margin-bottom:1rem;display:block}
 .section-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:var(--text-bright);margin-bottom:1rem;letter-spacing:-.5px;line-height:1.2}
 .section-subtitle{color:var(--text-dim);font-size:1.05rem;max-width:560px;line-height:1.8}
 .section-head{margin-bottom:3.5rem}
@@ -82,20 +82,20 @@ section{padding:5rem 2rem}
 .svc-card p{color:var(--text-dim);font-size:.9rem;line-height:1.7}
 .svc-card ul{list-style:none;margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
 .svc-card ul li{padding:.25rem .7rem;border-radius:50px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);font-size:.75rem}
-.ic-web{background:linear-gradient(135deg,var(--navy),var(--teal))}
+.ic-web{background:linear-gradient(135deg,var(--navy),var(--cyan))}
 .ic-gd{background:linear-gradient(135deg,var(--accent2),var(--teal))}
-.ic-app{background:linear-gradient(135deg,var(--accent3),var(--accent))}
+.ic-app{background:linear-gradient(135deg,var(--accent3),var(--orange))}
 
 /* PROCESS - CUSTOM TIMELINE */
 #process{background:var(--bg2)}
 .timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;counter-reset:step}
 .tl-step{position:relative;padding:2rem 1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:14px;counter-increment:step;transition:all .3s}
 .tl-step:hover{transform:translateY(-4px);border-color:var(--gold)}
-.tl-step::before{content:counter(step,decimal-leading-zero);position:absolute;top:-.8rem;right:1rem;font-family:Georgia,serif;font-size:3rem;font-weight:700;color:var(--gold);opacity:.15;line-height:1}
-.tl-num{display:block;font-family:Georgia,serif;font-size:1.8rem;color:var(--gold);margin-bottom:.8rem;font-weight:400}
+.tl-step::before{content:counter(step,decimal-leading-zero);position:absolute;top:-.8rem;right:1rem;font-family:Georgia,serif;font-size:3rem;font-weight:700;color:var(--cyan);opacity:.15;line-height:1}
+.tl-num{display:block;font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan);margin-bottom:.8rem;font-weight:400}
 .tl-step h3{font-family:Georgia,serif;font-size:1.1rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
 .tl-step p{color:var(--text-dim);font-size:.85rem;line-height:1.6}
-.tl-tag{display:inline-block;margin-top:.8rem;padding:.2rem .6rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(212,168,83,.1);color:var(--gold)}
+.tl-tag{display:inline-block;margin-top:.8rem;padding:.2rem .6rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(0,229,255,.1);color:var(--cyan)}
 
 /* CASE STUDIES */
 .case-grid{display:grid;gap:3rem}
@@ -105,11 +105,11 @@ section{padding:5rem 2rem}
 .case-card.featured::before{content:'REAL CLIENT';position:absolute;top:-.7rem;left:2rem;background:var(--accent);color:#fff;padding:.25rem 1rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:2px}
 .case-img{height:240px;background:var(--bg2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:3rem;border:1px solid var(--border)}
 .case-content h3{font-family:Georgia,serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
-.case-client{color:var(--gold);font-weight:600;font-size:.9rem;margin-bottom:1rem;display:block}
+.case-client{color:var(--cyan);font-weight:600;font-size:.9rem;margin-bottom:1rem;display:block}
 .case-content p{color:var(--text-dim);font-size:.95rem;line-height:1.7;margin-bottom:1rem}
 .case-result{display:flex;gap:1.5rem;margin-top:1.5rem}
 .case-stat{text-align:center}
-.case-stat .val{font-family:Georgia,serif;font-size:2rem;color:var(--gold);font-weight:400}
+.case-stat .val{font-family:Georgia,serif;font-size:2rem;color:var(--cyan);font-weight:400}
 .case-stat .lbl{font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
 
 /* PRICING */
@@ -129,7 +129,7 @@ section{padding:5rem 2rem}
 
 /* CONTACT / CTA */
 #contact{text-align:center;position:relative;overflow:hidden}
-#contact::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(233,69,96,.04) 0%,transparent 70%);border-radius:50%}
+#contact::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(0,229,255,.04) 0%,transparent 70%);border-radius:50%}
 #contact .section-inner{position:relative;z-index:1}
 #contact h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);color:var(--text-bright);margin-bottom:1rem;font-weight:400}
 #contact p{color:var(--text-dim);font-size:1.1rem;margin-bottom:2rem}
@@ -159,14 +159,26 @@ footer p{color:var(--text-dim);font-size:.8rem}
 <nav>
   <div class="nav-container">
     <a href="#" class="logo">
-  <svg width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px">
-    <path d="M50 85L15 20L30 15L50 55L70 15L85 20L50 85Z" stroke="#0a1628" stroke-width="2" fill="none"/>
-    <path d="M50 85L20 25L35 20L50 50L65 20L80 25L50 85Z" stroke="#00d4aa" stroke-width="1.5" fill="none" opacity="0.8"/>
-    <path d="M50 85L25 30L40 25L50 45L60 25L75 30L50 85Z" stroke="#e94560" stroke-width="1.5" fill="none" opacity="0.8"/>
-    <path d="M50 85L30 35L45 30L50 40L55 30L70 35L50 85Z" stroke="#0a1628" stroke-width="1" fill="none" opacity="0.6"/>
+  <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align:middle;margin-right:8px">
+    <defs>
+      <linearGradient id="vGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00e5ff"/>
+        <stop offset="50%" stop-color="#00d4aa"/>
+        <stop offset="100%" stop-color="#ff6b35"/>
+      </linearGradient>
+    </defs>
+    <path d="M25 20 Q35 40 50 75 Q65 40 75 20" stroke="url(#vGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M20 25 Q30 45 50 80 Q70 45 80 25" stroke="url(#vGrad)" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/>
+    <circle cx="22" cy="18" r="1.5" fill="#00e5ff" opacity="0.8"/>
+    <circle cx="18" cy="22" r="1" fill="#00e5ff" opacity="0.6"/>
+    <circle cx="25" cy="15" r="1.2" fill="#00e5ff" opacity="0.7"/>
+    <circle cx="20" cy="28" r="0.8" fill="#00d4aa" opacity="0.5"/>
+    <circle cx="78" cy="18" r="1.5" fill="#ff6b35" opacity="0.8"/>
+    <circle cx="82" cy="22" r="1" fill="#ff6b35" opacity="0.6"/>
+    <circle cx="75" cy="15" r="1.2" fill="#ffb347" opacity="0.7"/>
   </svg>
-  <span>VICINITY</span>
-  <span style="font-size:.7rem;font-weight:400;color:var(--text-dim);margin-left:4px;letter-spacing:1px">WEB + DESIGN</span>
+  <span style="font-size:1.1rem;font-weight:700;letter-spacing:1px">VICINTY</span>
+  <span style="font-size:.65rem;font-weight:400;color:var(--teal);margin-left:6px;letter-spacing:1.5px">WEB & CREATIVE</span>
 </a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
@@ -419,7 +431,7 @@ footer p{color:var(--text-dim);font-size:.8rem}
 </section>
 
 <footer>
-  <p>&copy; 2026 Vicinity Web + Design. Built with intention — not templates.</p>
+  <p>&copy; 2026 Vicinty Web & Creative. Built with intention — not templates.</p>
 </footer>
 
 <script>
