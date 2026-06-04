@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vic's Diner | Burgers, Fries & Good Times</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --accent: #ff6b35;
+            --accent-dark: #e55a2b;
+            --cream: #faf7f2;
+            --text: #2d2d2d;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--white);
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -1px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.8rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--white);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--primary);
+            color: var(--white);
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(255,107,53,0.1) 100%);
+            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-label {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary);
+            border-color: var(--white);
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            transform: rotate(3deg);
+            transition: transform 0.5s;
+        }
+
+        .hero-image img:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        /* Floating Cards */
+        .stats-bar {
+            background: var(--white);
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: -3rem auto 0;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+
+        .menu-image {
+            height: 220px;
+            background: #eee;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .menu-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .menu-card:hover .menu-image img {
+            transform: scale(1.08);
+        }
+
+        .menu-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .menu-details {
+            padding: 1.5rem;
+        }
+
+        .menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .menu-price {
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .menu-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--primary);
+            color: var(--white);
+            padding: 6rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: var(--accent);
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .about-images img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .about-images img:first-child {
+            grid-column: span 2;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .about-content h2 span {
+            color: var(--accent);
+        }
+
+        .about-content p {
+            opacity: 0.8;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--cream);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-text {
+            color: var(--text);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Hours & Location */
+        .info {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .hours-card, .location-card {
+            padding: 2.5rem;
+            background: var(--cream);
+            border-radius: 16px;
+        }
+
+        .hours-card h3, .location-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .hours-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+        }
+
+        .time {
+            color: var(--text-light);
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .address {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .phone {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.6);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-container,
+            .about-container,
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .stats-bar {
+                margin: -2rem 1rem 0;
+            }
+
+            .about-images {
+                grid-template-columns: 1fr;
+            }
+
+            .about-images img:first-child {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">&#127828;</span>
+                <span>Vic's Diner</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#info">Hours</a></li>
+            </ul>
+            <a href="#info" class="nav-cta">Order Now</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-label">Est. 2018</span>
+                <h1>The Best Burgers<br>in <span>the Vicinity</span></h1>
+                <p>Hand-crafted burgers, crispy fries, and milkshakes that'll transport you back to the good old days. Made fresh, never frozen.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">View Menu</a>
+                    <a href="#info" class="btn btn-outline">Find Us</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=600&fit=crop" alt="Delicious burger">
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar fade-in">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>15+</h3>
+                <p>Burger Varieties</p>
+            </div>
+            <div class="stat-item">
+                <h3>50K+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="stat-item">
+                <h3>4.9</h3>
+                <p>Star Rating</p>
+            </div>
+            <div class="stat-item">
+                <h3>2018</h3>
+                <p>Serving Since</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <div class="section-header fade-in">
+            <span class="section-label">Our Menu</span>
+            <h2 class="section-title">Fan Favorites</h2>
+            <p class="section-subtitle">Each burger is hand-pattied daily using locally sourced beef and served on a toasted brioche bun.</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-card fade-in">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=400&h=300&fit=crop" alt="Classic Cheeseburger">
+                    <span class="menu-badge">Best Seller</span>
+                </div>
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-name">The Vic Classic</span>
+                        <span class="menu-price">$12</span>
+                    </div>
+                    <p class="menu-desc">Double patty, American cheese, lettuce, tomato, onion, pickles & Vic's secret sauce.</p>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=400&h=300&fit=crop" alt="Bacon Burger">
+                    <span class="menu-badge">Popular</span>
+                </div>
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-name">Bacon BBQ Boss</span>
+                        <span class="menu-price">$14</span>
+                    </div>
+                    <p class="menu-desc">Thick-cut bacon, cheddar, crispy onion rings, smoky BBQ sauce on a pretzel bun.</p>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400&h=300&fit=crop" alt="Spicy Burger">
+                </div>
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-name">Heat Wave</span>
+                        <span class="menu-price">$13</span>
+                    </div>
+                    <p class="menu-desc">Jalapeños, pepper jack, chipotle mayo, and ghost pepper jam for the brave.</p>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1550317138-10000687a72b?w=400&h=300&fit=crop" alt="Veggie Burger">
+                    <span class="menu-badge">Veggie</span>
+                </div>
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-name">Garden Smash</span>
+                        <span class="menu-price">$11</span>
+                    </div>
+                    <p class="menu-desc">House-made black bean & quinoa patty, avocado, sprouts, and garlic aioli.</p>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?w=400&h=300&fit=crop" alt="Loaded Fries">
+                </div>
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-name">Vic's Loaded Fries</span>
+                        <span class="menu-price">$8</span>
+                    </div>
+                    <p class="menu-desc">Crispy fries topped with cheese sauce, bacon bits, green onions & ranch drizzle.</p>
+                </div>
+            </div>
+
+            <div class="menu-card fade-in">
+                <div class="menu-image">
+                    <img src="https://images.unsplash.com/photo-1579954115545-a95591f28bfc?w=400&h=300&fit=crop" alt="Milkshake">
+                </div>
+                <div class="menu-details">
+                    <div class="menu-header">
+                        <span class="menu-name">Thick Milkshakes</span>
+                        <span class="menu-price">$6</span>
+                    </div>
+                    <p class="menu-desc">Hand-spun with premium ice cream. Vanilla, Chocolate, Strawberry, or Oreo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-images fade-in">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600&h=400&fit=crop" alt="Restaurant interior">
+                <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=300&h=300&fit=crop" alt="Diner atmosphere">
+                <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=300&h=300&fit=crop" alt="Food prep">
+            </div>
+            <div class="about-content fade-in">
+                <span class="section-label" style="color: var(--accent)">Our Story</span>
+                <h2>A Neighborhood <span>Institution</span></h2>
+                <p>What started as a tiny food truck in 2018 has grown into the neighborhood's favorite burger joint. Vic believed that great food doesn't need to be complicated — just made with care, quality ingredients, and a whole lot of love.</p>
+                <p>Every morning, we grind fresh beef, bake our brioche buns, and prep our sauces from scratch. No frozen patties, no shortcuts. Just honest food that tastes like home.</p>
+                <a href="#menu" class="btn btn-primary" style="margin-top: 1rem;">See The Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="testimonials">
+        <div class="section-header fade-in">
+            <span class="section-label">Reviews</span>
+            <h2 class="section-title">What People Are Saying</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card fade-in">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Best burger I've had in years. The Vic Classic is unreal — juicy, perfectly seasoned, and that secret sauce is addictive. This place is a gem!"</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">JD</div>
+                    <div class="author-info">
+                        <h4>James D.</h4>
+                        <p>Local Foodie</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"We drive 30 minutes just for Vic's loaded fries. The atmosphere is cozy, the staff treats you like family, and the milkshakes are insane."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MK</div>
+                    <div class="author-info">
+                        <h4>Maria K.</h4>
+                        <p>Regular Customer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="testimonial-text">"Finally, a veggie burger that doesn't taste like cardboard! The Garden Smash is incredible. My meat-eating friends even order it now."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">AT</div>
+                    <div class="author-info">
+                        <h4>Alex T.</h4>
+                        <p>Veggie Lover</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" class="info">
+        <div class="section-header fade-in" style="margin-bottom: 3rem;">
+            <span class="section-label">Visit Us</span>
+            <h2 class="section-title">Come Hungry</h2>
+        </div>
+        <div class="info-container">
+            <div class="hours-card fade-in">
+                <h3>&#128336; Hours</h3>
+                <div class="hours-row">
+                    <span class="day">Monday - Thursday</span>
+                    <span class="time">11am - 10pm</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Friday - Saturday</span>
+                    <span class="time highlight">11am - 12am</span>
+                </div>
+                <div class="hours-row">
+                    <span class="day">Sunday</span>
+                    <span class="time">12pm - 9pm</span>
+                </div>
+            </div>
+            <div class="location-card fade-in">
+                <h3>&#128205; Location</h3>
+                <p class="address">456 Main Street<br>Vicinity, CA 90210</p>
+                <p class="address" style="margin-top: 1rem;">Plenty of street parking + free lot behind the building.</p>
+                <a href="tel:555-123-4567" class="phone">(555) 123-4567</a>
+                <div class="social-links">
+                    <a href="#" title="Instagram">&#128247;</a>
+                    <a href="#" title="Facebook">&#128172;</a>
+                    <a href="#" title="Yelp">&#127860;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="footer-logo">Vic's Diner</a>
+            <ul class="footer-links">
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#info">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vic's Diner. All rights reserved. Made with &#128293; in Vicinity.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

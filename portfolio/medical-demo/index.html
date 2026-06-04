@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicinity Family Medicine | Compassionate Care Close to Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a5f;
+            --secondary: #4a90a4;
+            --accent: #5a9e6f;
+            --accent-light: #e8f5e9;
+            --cream: #f0f2f5;
+            --text: #2d3748;
+            --text-light: #718096;
+            --white: #f5f7fa;
+            --card: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--cream);
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--card);
+            padding: 1.2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--card);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: #4a8b5c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(90, 158, 111, 0.3);
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--card);
+            padding: 10rem 2rem 6rem;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            color: var(--card);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            opacity: 0.9;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--card);
+        }
+
+        .btn-primary:hover {
+            background: #4a8b5c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(90, 158, 111, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--card);
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .btn-outline:hover {
+            background: var(--card);
+            color: var(--primary);
+            border-color: var(--card);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 450px;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: var(--card);
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: -2.5rem auto 0;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            z-index: 10;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .trust-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .trust-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-light);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+
+        .trust-item h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .trust-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Services */
+        .services {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--cream);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--card);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.4s;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .team-image {
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -1rem;
+            right: -1rem;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(90, 158, 111, 0.3);
+        }
+
+        .experience-badge .years {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .experience-badge .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .team-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .team-content .role {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .team-content p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .credential {
+            background: var(--accent-light);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--card);
+        }
+
+        .testimonials .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .testimonials .section-title {
+            color: var(--card);
+        }
+
+        .testimonials .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            opacity: 0.95;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Contact / Appointment */
+        .contact {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .contact-info > p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-card {
+            background: var(--card);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--accent-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .contact-card h4 {
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .contact-form {
+            background: var(--card);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .contact-form h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 4px rgba(74, 144, 164, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: var(--card);
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .submit-btn:hover {
+            background: #4a8b5c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(90, 158, 111, 0.3);
+        }
+
+        /* Insurance */
+        .insurance {
+            background: #e8eaed;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .insurance h3 {
+            color: var(--text-light);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+        }
+
+        .insurance-logos {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .insurance-logo {
+            background: var(--card);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-weight: 700;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.7);
+            padding: 3rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            color: var(--card);
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--card);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero-container,
+            .team-grid,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 4rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-bar {
+                margin: -1.5rem 1rem 0;
+            }
+
+            .experience-badge {
+                right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">&#10010;</span>
+                <span>Vicinity Family Medicine</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Book Appointment</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-label">Accepting New Patients</span>
+                <h1>Healthcare That Feels Like Family</h1>
+                <p>Board-certified family medicine providing personalized, compassionate care for patients of all ages. Same-week appointments available.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=500&fit=crop" alt="Caring doctor">
+            </div>
+        </div>
+    </section>
+
+    <section class="trust-bar fade-in">
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">&#128104;&#8205;&#9877;&#65039;</div>
+                <h3>Board Certified</h3>
+                <p>ABFM Certified Physicians</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">&#128197;</div>
+                <h3>Same-Week Appts</h3>
+                <p>No Long Waits for Care</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">&#128100;</div>
+                <h3>All Ages Welcome</h3>
+                <p>From Newborns to Seniors</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">&#127973;</div>
+                <h3>In-House Labs</h3>
+                <p>On-Site Diagnostics</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-header fade-in">
+            <span class="section-label">Services</span>
+            <h2 class="section-title">Comprehensive Family Care</h2>
+            <p class="section-subtitle">From routine checkups to chronic disease management, we provide full-spectrum primary care for your entire family.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128567;</div>
+                <h3>Preventive Care</h3>
+                <p>Annual physicals, wellness exams, immunizations, and health screenings to catch issues early and keep you healthy.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128137;</div>
+                <h3>Chronic Disease Management</h3>
+                <p>Expert management of diabetes, hypertension, asthma, heart disease, and other ongoing conditions.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128118;</div>
+                <h3>Pediatric Care</h3>
+                <p>Well-child visits, developmental screenings, school physicals, and childhood immunizations.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#129516;</div>
+                <h3>Women's Health</h3>
+                <p>Pap smears, breast exams, family planning, menopause management, and preventive screenings.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128221;</div>
+                <h3>Same-Day Sick Visits</h3>
+                <p>Cold and flu, infections, minor injuries, allergies, stomach issues — seen the same day you call.</p>
+            </div>
+            <div class="service-card fade-in">
+                <div class="service-icon">&#128200;</div>
+                <h3>In-House Diagnostics</h3>
+                <p>On-site blood work, EKGs, strep tests, flu tests, urinalysis, and more for faster results.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="section-header fade-in">
+            <span class="section-label">Our Team</span>
+            <h2 class="section-title">Meet Dr. Vic</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-image fade-in">
+                <img src="jonathan-borba-uBb_ZDIrquc-unsplash.jpg" alt="Dr. Victoria Mitchell">
+                <div class="experience-badge">
+                    <div class="years">18+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+            </div>
+            <div class="team-content fade-in">
+                <h2>Dr. Victoria Mitchell</h2>
+                <span class="role">Board-Certified Family Medicine Physician</span>
+                <p>Dr. Vic founded Vicinity Family Medicine with a simple mission: provide the kind of care she'd want for her own family. After 18 years in both hospital and private practice settings, she knows that great healthcare starts with listening.</p>
+                <p>"I believe every patient deserves time, attention, and a treatment plan that fits their life — not just their diagnosis. That's why we book longer appointments and never rush you out the door."</p>
+                <div class="credentials">
+                    <span class="credential">MD, Family Medicine</span>
+                    <span class="credential">ABFM Certified</span>
+                    <span class="credential">Harvard Medical School</span>
+                    <span class="credential">Residency: Mayo Clinic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="testimonials">
+        <div class="section-header fade-in">
+            <span class="section-label" style="color: rgba(255,255,255,0.8)">Patient Stories</span>
+            <h2 class="section-title">What Patients Say</h2>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"Dr. Vic actually listens. My last doctor would rush me out in 10 minutes. She spent 45 minutes with me, answered every question, and adjusted my treatment plan when I told her my schedule. Best doctor I've ever had."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">RC</div>
+                    <div class="author-info">
+                        <h4>Robert C.</h4>
+                        <p>Patient since 2019</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"They got my son in same-day when he had a fever. The nurse was so gentle with him, and Dr. Vic explained everything to us in plain English. I never feel anxious bringing my kids here."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">SL</div>
+                    <div class="author-info">
+                        <h4>Sarah L.</h4>
+                        <p>Mother of 3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card fade-in">
+                <p class="testimonial-text">"After my diabetes diagnosis, I was overwhelmed. Dr. Vic's team created a manageable plan, checked in with me between visits, and celebrated my milestones. My A1C went from 9.2 to 6.8 in 6 months."</p>
+                <div class="testimonial-author">
+                    <div class="author-avatar">MP</div>
+                    <div class="author-info">
+                        <h4>Michael P.</h4>
+                        <p>Patient since 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-header fade-in" style="margin-bottom: 3rem;">
+            <span class="section-label">Appointments</span>
+            <h2 class="section-title">Start Your Care Today</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h2>Ready to Become a Patient?</h2>
+                <p>New patient appointments are typically available within 3-5 business days. We accept most major insurance plans.</p>
+                <div class="contact-card">
+                    <div class="contact-icon">&#128222;</div>
+                    <div>
+                        <h4>Call Us</h4>
+                        <p>(555) 234-5678<br>Mon-Fri, 8am - 5pm</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">&#128205;</div>
+                    <div>
+                        <h4>Visit Us</h4>
+                        <p>789 Wellness Blvd, Suite 200<br>Vicinity, CA 90210</p>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">&#128197;</div>
+                    <div>
+                        <h4>Office Hours</h4>
+                        <p>Mon-Thu: 8am-6pm | Fri: 8am-4pm<br>Sat: 9am-12pm (urgent only)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form fade-in">
+                <h3>Request an Appointment</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" placeholder="Doe" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" placeholder="(555) 000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Appointment Type</label>
+                        <select required>
+                            <option value="">Select...</option>
+                            <option>New Patient Visit</option>
+                            <option>Annual Physical</option>
+                            <option>Sick Visit</option>
+                            <option>Follow-Up</option>
+                            <option>Lab Results</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Message / Concerns</label>
+                        <textarea rows="3" placeholder="Briefly describe what you'd like to discuss..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Request Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="insurance">
+        <h3>Insurance Accepted</h3>
+        <div class="insurance-logos">
+            <div class="insurance-logo">BlueCross</div>
+            <div class="insurance-logo">Aetna</div>
+            <div class="insurance-logo">Cigna</div>
+            <div class="insurance-logo">UnitedHealth</div>
+            <div class="insurance-logo">Kaiser</div>
+            <div class="insurance-logo">Medicare</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#" class="footer-logo">
+                <span style="font-size: 1.4rem;">&#10010;</span>
+                Vicinity Family Medicine
+            </a>
+            <ul class="footer-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#">Patient Portal</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Vicinity Family Medicine. All rights reserved. | HIPAA Compliant | Emergency? Call 911</p>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
