@@ -17,11 +17,14 @@
 <meta name="twitter:title" content="Vicinty Web & Creative">
 <meta name="twitter:description" content="Custom websites, branding, and web apps for local businesses. From $1,200.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300e5ff'/%3E%3Cstop offset='100%25' stop-color='%23ff6b35'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M25 20 Q35 40 50 75 Q65 40 75 20' stroke='url(%23g)' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Ccircle cx='22' cy='18' r='2' fill='%2300e5ff'/%3E%3Ccircle cx='78' cy='18' r='2' fill='%23ff6b35'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#08080c;--bg2:#0e0e14;--bg3:#14141c;--border:#1e1e2a;--navy:#0a1628;--teal:#00d4aa;--cyan:#00e5ff;--orange:#ff6b35;--amber:#ffb347;--gold:#d4a853;--accent:#e94560;--accent2:#667eea;--accent3:#5a9e6f;--text:#c4c4cc;--text-dim:#6b6b78;--text-bright:#f0f0f5;--shadow:0 4px 30px rgba(0,0,0,.5)}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.7;color:var(--text);background:var(--bg)}
+body{font-family:'Outfit','Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.7;color:var(--text);background:var(--bg);font-feature-settings:"ss01","cv11"}
 
 nav{background:rgba(8,8,12,.95);backdrop-filter:blur(20px);padding:1.2rem 0;position:fixed;width:100%;top:0;z-index:1000;border-bottom:1px solid var(--border)}
 .nav-container{max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center}
@@ -38,7 +41,7 @@ nav{background:rgba(8,8,12,.95);backdrop-filter:blur(20px);padding:1.2rem 0;posi
 .hero::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.015;pointer-events:none;z-index:0}
 .hero-content{position:relative;z-index:1;max-width:800px;margin:0 auto}
 .hero-label{display:inline-block;background:rgba(0,229,255,.08);color:var(--cyan);padding:.4rem 1.2rem;border-radius:50px;font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:3px;margin-bottom:1.5rem;border:1px solid rgba(0,229,255,.15)}
-.hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:400;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-1px;color:var(--text-bright)}
+.hero h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,5vw,4.5rem);font-weight:700;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-2px;color:var(--text-bright)}
 .hero h1 em{font-style:italic;color:var(--cyan)}
 .hero p{font-size:1.1rem;color:var(--text-dim);margin-bottom:2.5rem;max-width:550px;margin-left:auto;margin-right:auto;line-height:1.8}
 .hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
@@ -54,7 +57,7 @@ nav{background:rgba(8,8,12,.95);backdrop-filter:blur(20px);padding:1.2rem 0;posi
 section{padding:5rem 2rem}
 .section-inner{max-width:1200px;margin:0 auto}
 .section-label{color:var(--cyan);font-weight:700;text-transform:uppercase;letter-spacing:3px;font-size:.8rem;margin-bottom:1rem;display:block}
-.section-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:var(--text-bright);margin-bottom:1rem;letter-spacing:-.5px;line-height:1.2}
+.section-title{font-family:'Outfit',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:var(--text-bright);margin-bottom:1rem;letter-spacing:-1.2px;line-height:1.15}
 .section-subtitle{color:var(--text-dim);font-size:1.05rem;max-width:560px;line-height:1.8}
 .section-head{margin-bottom:3.5rem}
 .section-head.center{text-align:center}
@@ -91,7 +94,7 @@ section{padding:5rem 2rem}
 .svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:0;transition:opacity .3s}
 .svc-card:hover{transform:translateY(-4px);border-color:var(--accent)}.svc-card:hover::before{opacity:1}
 .svc-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.5rem}
-.svc-card h3{font-family:Georgia,'Times New Roman',serif;font-size:1.3rem;color:var(--text-bright);margin-bottom:.6rem;font-weight:400}
+.svc-card h3{font-family:'Outfit',sans-serif;font-size:1.3rem;color:var(--text-bright);margin-bottom:.6rem;font-weight:600;letter-spacing:-.5px}
 .svc-card p{color:var(--text-dim);font-size:.9rem;line-height:1.7}
 .svc-card ul{list-style:none;margin-top:1rem;display:flex;flex-wrap:wrap;gap:.5rem}
 .svc-card ul li{padding:.25rem .7rem;border-radius:50px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text-dim);font-size:.75rem}
@@ -125,13 +128,12 @@ section{padding:5rem 2rem}
 .wave-timeline{position:relative;padding:4rem 0;min-height:400px}
 .wave-svg{position:absolute;top:50%;left:0;right:0;height:200px;transform:translateY(-50%);z-index:0;pointer-events:none}
 .timeline-steps{display:grid;grid-template-columns:repeat(7,1fr);gap:1rem;position:relative;z-index:1}
-.tl-step{position:relative;padding:1.5rem 1rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;text-align:center;transition:all .3s;counter-increment:step}
+.tl-step{position:relative;padding:1.5rem 1rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;text-align:center;transition:all .3s}
 .tl-step:nth-child(odd){transform:translateY(-30px)}
 .tl-step:nth-child(even){transform:translateY(30px)}
 .tl-step:hover{transform:translateY(0);border-color:var(--cyan);box-shadow:0 0 30px rgba(0,229,255,.15)}
-.tl-step::before{content:counter(step,decimal-leading-zero);position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);font-family:Georgia,serif;font-size:2rem;font-weight:700;color:var(--cyan);opacity:.2;line-height:1}
-.tl-num{display:block;font-family:Georgia,serif;font-size:1.4rem;color:var(--cyan);margin-bottom:.5rem;font-weight:400}
-.tl-step h3{font-family:Georgia,serif;font-size:1rem;color:var(--text-bright);margin-bottom:.4rem;font-weight:400}
+.tl-num{display:block;font-family:'Outfit',sans-serif;font-size:1.2rem;color:var(--cyan);margin-bottom:.3rem;font-weight:600;letter-spacing:-.5px}
+.tl-step h3{font-family:'Outfit',sans-serif;font-size:1rem;color:var(--text-bright);margin-bottom:.4rem;font-weight:600;letter-spacing:-.3px}
 .tl-step p{color:var(--text-dim);font-size:.8rem;line-height:1.5}
 .tl-tag{display:inline-block;margin-top:.6rem;padding:.2rem .6rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(0,229,255,.1);color:var(--cyan)}
 .timeline-connector{position:absolute;top:50%;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--orange));transform:translateY(-50%);z-index:0}
@@ -144,12 +146,12 @@ section{padding:5rem 2rem}
 .case-card.featured{border-color:var(--accent);position:relative}
 .case-card.featured::before{content:'REAL CLIENT';position:absolute;top:-.7rem;left:2rem;background:var(--accent);color:#fff;padding:.25rem 1rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:2px}
 .case-img{height:240px;background:var(--bg2);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--text-dim);font-size:3rem;border:1px solid var(--border)}
-.case-content h3{font-family:Georgia,serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
+.case-content h3{font-family:'Outfit',sans-serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:700;letter-spacing:-.8px}
 .case-client{color:var(--cyan);font-weight:600;font-size:.9rem;margin-bottom:1rem;display:block}
 .case-content p{color:var(--text-dim);font-size:.95rem;line-height:1.7;margin-bottom:1rem}
 .case-result{display:flex;gap:1.5rem;margin-top:1.5rem}
 .case-stat{text-align:center}
-.case-stat .val{font-family:Georgia,serif;font-size:2rem;color:var(--cyan);font-weight:400}
+.case-stat .val{font-family:'Outfit',sans-serif;font-size:2rem;color:var(--cyan);font-weight:700;letter-spacing:-1px}
 .case-stat .lbl{font-size:.75rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
 
 /* PRICING */
@@ -159,8 +161,8 @@ section{padding:5rem 2rem}
 .price-card:hover{transform:translateY(-6px);border-color:var(--gold)}
 .price-card.featured{border-color:var(--accent);position:relative;transform:scale(1.03)}
 .price-card.featured::before{content:'MOST POPULAR';position:absolute;top:-.7rem;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;padding:.25rem 1rem;border-radius:50px;font-size:.65rem;font-weight:700;letter-spacing:2px;white-space:nowrap}
-.price-card h3{font-family:Georgia,serif;font-size:1.4rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:400}
-.price-amt{font-family:Georgia,serif;font-size:3rem;color:var(--text-bright);font-weight:400;margin:1rem 0;line-height:1}
+.price-card h3{font-family:'Outfit',sans-serif;font-size:1.4rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:600;letter-spacing:-.5px}
+.price-amt{font-family:'Outfit',sans-serif;font-size:3rem;color:var(--text-bright);font-weight:700;margin:1rem 0;line-height:1;letter-spacing:-1.5px}
 .price-amt span{font-size:1rem;color:var(--text-dim)}
 .price-card ul{list-style:none;margin:1.5rem 0;text-align:left}
 .price-card ul li{padding:.5rem 0;color:var(--text-dim);font-size:.9rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.5rem}
@@ -171,7 +173,7 @@ section{padding:5rem 2rem}
 #contact{text-align:center;position:relative;overflow:hidden}
 #contact::before{content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(0,229,255,.04) 0%,transparent 70%);border-radius:50%}
 #contact .section-inner{position:relative;z-index:1}
-#contact h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3rem);color:var(--text-bright);margin-bottom:1rem;font-weight:400}
+#contact h2{font-family:'Outfit',sans-serif;font-size:clamp(2rem,4vw,3rem);color:var(--text-bright);margin-bottom:1rem;font-weight:700;letter-spacing:-1.5px}
 #contact p{color:var(--text-dim);font-size:1.1rem;margin-bottom:2rem}
 .contact-row{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1rem}
 .contact-chip{padding:.8rem 1.5rem;background:var(--bg3);border:1px solid var(--border);border-radius:50px;color:var(--text);font-size:.9rem;display:flex;align-items:center;gap:.5rem}
@@ -179,6 +181,79 @@ section{padding:5rem 2rem}
 /* FOOTER */
 footer{background:var(--bg2);padding:2rem;text-align:center;border-top:1px solid var(--border)}
 footer p{color:var(--text-dim);font-size:.8rem}
+
+/* MENU COST CALCULATOR WIDGET */
+.calc-widget-container{width:100%;max-width:540px;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.calc-widget-container::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,229,255,.06) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.calc-widget-container::after{content:'';position:absolute;bottom:-40px;left:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(255,107,53,.05) 0%,transparent 70%);border-radius:50%;pointer-events:none}
+.calc-header{text-align:center;margin-bottom:1.5rem;position:relative;z-index:1}
+.calc-illustration{width:80px;height:80px;margin-bottom:.5rem}
+.calc-badge{display:inline-block;padding:.25rem .8rem;border-radius:50px;font-size:.7rem;font-weight:600;background:rgba(0,229,255,.1);color:var(--cyan);margin-bottom:.8rem}
+.calc-title{font-family:'Outfit',sans-serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:.5rem;font-weight:700;letter-spacing:-.5px}
+.calc-subtitle{color:var(--text-dim);font-size:.85rem;max-width:360px;margin:0 auto}
+.calc-recipe-name{position:relative;z-index:1;margin-bottom:1.5rem}
+.calc-recipe-name label,.calc-target label,.calc-ingredients label{display:block;color:var(--text-dim);font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:.8rem}
+.calc-recipe-name input,.calc-tc input,.calc-add-form input,.calc-email-wrap input{width:100%;padding:.9rem 1.2rem;background:var(--bg3);border:1px solid var(--border);border-radius:12px;color:var(--text-bright);font-size:1rem;font-family:'Outfit',sans-serif;transition:all .3s}
+.calc-tc input{width:80px;padding:.6rem .8rem;text-align:center;font-size:.95rem}
+.calc-recipe-name input:focus,.calc-tc input:focus,.calc-add-form input:focus,.calc-email-wrap input:focus{outline:none;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(0,229,255,.1)}
+.calc-recipe-name input::placeholder,.calc-add-form input::placeholder,.calc-email-wrap input::placeholder{color:var(--text-dim)}
+.calc-target{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.4rem;margin-bottom:1.5rem;position:relative;z-index:1}
+.calc-tq{display:flex;gap:.5rem;margin-bottom:.8rem;flex-wrap:wrap}
+.calc-tq-btn{padding:.5rem 1rem;border-radius:8px;background:var(--bg);border:1px solid var(--border);color:var(--text-dim);cursor:pointer;font-weight:600;font-size:.8rem;transition:all .2s;font-family:inherit}
+.calc-tq-btn:hover{border-color:var(--cyan);color:var(--cyan)}
+.calc-tq-btn.active{background:rgba(0,229,255,.12);border-color:var(--cyan);color:var(--cyan)}
+.calc-tc{display:flex;align-items:center;gap:.5rem}
+.calc-tc span{color:var(--text-dim);font-size:.85rem}
+.calc-ingredients{margin-bottom:1.5rem;position:relative;z-index:1}
+.calc-count{font-weight:400;color:var(--cyan);text-transform:none;letter-spacing:0}
+.calc-add-form{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;margin-bottom:1rem}
+.calc-add-form input{padding:.7rem .8rem;font-size:.85rem}
+.calc-add-btn{padding:.7rem 1rem;background:var(--accent);border:none;border-radius:10px;color:#fff;font-weight:700;font-size:1.1rem;cursor:pointer;transition:all .3s;line-height:1}
+.calc-add-btn:hover{filter:brightness(1.15);transform:scale(1.05)}
+.calc-add-btn:disabled{background:var(--border);color:var(--text-dim);cursor:not-allowed;transform:none;filter:none}
+.calc-list{min-height:0}
+.calc-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:.5rem;padding:.65rem .8rem;background:var(--bg3);border:1px solid var(--border);border-radius:10px;margin-bottom:.4rem;align-items:center;animation:calcFadeIn .2s ease}
+.calc-row:nth-child(even){background:rgba(255,255,255,.015)}
+.calc-row .cr-name{color:var(--text-bright);font-size:.85rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-row .cr-amount{color:var(--text-dim);font-size:.8rem}
+.calc-row .cr-cost{color:var(--text-bright);font-size:.85rem;font-weight:600;text-align:right}
+.calc-remove{width:28px;height:28px;border-radius:50%;background:transparent;border:1px solid var(--border);color:var(--text-dim);font-size:1rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+.calc-remove:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.calc-empty{text-align:center;padding:2rem 1rem;color:var(--text-dim);font-size:.85rem;border:1px dashed var(--border);border-radius:12px}
+.calc-running-total{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;background:rgba(0,229,255,.04);border:1px dashed var(--border);border-radius:12px;margin-top:.5rem}
+.calc-tl{color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.calc-tv{font-family:'Outfit',sans-serif;font-size:1.4rem;color:var(--cyan);font-weight:700;letter-spacing:-.5px}
+.calc-calc{margin-top:1rem}
+.calc-reset{margin-top:.5rem;margin-bottom:0}
+.calc-result{background:linear-gradient(135deg,rgba(0,229,255,.05),rgba(255,107,53,.05));border:1px solid var(--border);border-radius:16px;padding:1.5rem;text-align:center;margin-top:1.5rem;opacity:0;transform:translateY(10px);transition:all .3s;position:relative;z-index:1}
+.calc-result.visible{opacity:1;transform:translateY(0)}
+.calc-recipe-display{font-family:'Outfit',sans-serif;font-size:1.1rem;color:var(--text-bright);text-transform:none;letter-spacing:0;margin-bottom:.8rem;font-weight:600}
+.calc-result-label{color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:.3rem}
+.calc-result-value{font-family:'Outfit',sans-serif;font-size:3rem;color:var(--cyan);font-weight:700;line-height:1;letter-spacing:-1.5px}
+.calc-result-row{display:flex;justify-content:center;gap:1.5rem;margin-top:.8rem;flex-wrap:wrap}
+.calc-rs{text-align:center}
+.calc-rsv{font-family:'Outfit',sans-serif;font-size:1.3rem;color:var(--text-bright);font-weight:700;letter-spacing:-.5px}
+.calc-rsl{font-size:.65rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px}
+.calc-result-actions{display:flex;gap:.5rem;margin-top:1.2rem;flex-wrap:wrap}
+.calc-result-actions .btn{flex:1;padding:.7rem 1.2rem;font-size:.85rem}
+.calc-email{display:none;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);position:relative;z-index:1}
+.calc-email.visible{display:block}
+.calc-email>p{color:var(--text-dim);font-size:.85rem;margin-bottom:1rem;text-align:center}
+.calc-email-wrap{display:flex;gap:.5rem}
+.calc-email-wrap .btn{width:auto;padding:.8rem 1.5rem;flex-shrink:0;border-radius:12px}
+.calc-email-note{font-size:.7rem;color:var(--text-dim);margin-top:.8rem;text-align:center}
+@keyframes calcFadeIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+@media(max-width:540px){
+  .calc-widget-container{padding:1.5rem}
+  .calc-add-form{grid-template-columns:1fr 1fr;gap:.4rem}
+  .calc-add-form input:nth-child(1){grid-column:1/-1}
+  .calc-add-btn{grid-column:2;grid-row:2}
+  .calc-row{grid-template-columns:1fr 1fr;gap:.3rem;font-size:.8rem}
+  .calc-row .cr-name{grid-column:1/-1}
+  .calc-remove{grid-column:2;grid-row:2/-2;justify-self:end}
+  .calc-result-value{font-size:2.4rem}
+  .calc-email-wrap{flex-direction:column}
+}
 
 /* UTILITIES */
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
@@ -229,6 +304,7 @@ footer p{color:var(--text-dim);font-size:.8rem}
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#tools">Free Tools</a></li>
       <li><a href="#process">Process</a></li>
       <li><a href="#cases">Case Studies</a></li>
       <li><a href="#pricing">Pricing</a></li>
@@ -293,17 +369,8 @@ footer p{color:var(--text-dim);font-size:.8rem}
   <div class="section-inner">
     <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:3rem;align-items:center">
       <div style="position:relative;width:200px;height:200px;margin:0 auto">
-        <svg viewBox="0 0 200 200" style="width:100%;height:100%">
-          <defs>
-            <linearGradient id="aboutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stop-color="#00e5ff"/>
-              <stop offset="100%" stop-color="#ff6b35"/>
-            </linearGradient>
-          </defs>
-          <circle cx="100" cy="100" r="95" fill="url(#aboutGrad)" opacity="0.15"/>
-          <circle cx="100" cy="100" r="95" fill="none" stroke="url(#aboutGrad)" stroke-width="2" opacity="0.4"/>
-          <text x="100" y="115" text-anchor="middle" font-family="Georgia,serif" font-size="60" fill="url(#aboutGrad)" font-weight="400">V</text>
-        </svg>
+        <div style="position:absolute;inset:-6px;border-radius:50%;background:linear-gradient(135deg,#00e5ff,#ff6b35);z-index:0"></div>
+        <img src="assets/headshot.png" alt="Vic — Founder of Vicinity Web & Creative" style="position:relative;width:200px;height:200px;border-radius:50%;object-fit:cover;display:block;z-index:1;border:4px solid #0e0e14">
       </div>
       <div>
         <span class="section-label">About</span>
@@ -311,9 +378,9 @@ footer p{color:var(--text-dim);font-size:.8rem}
         <p style="color:var(--text-dim);font-size:1.05rem;line-height:1.8;margin-bottom:1rem">I build websites for local businesses that actually convert visitors into customers. No bloated agency overhead — just clean, fast, hand-coded work delivered in a week.</p>
         <p style="color:var(--text-dim);font-size:1.05rem;line-height:1.8;margin-bottom:1.5rem">Based in Texas, working with clients nationwide. I've built sites for psychics, real estate agents, restaurants, doctors, and small shops — and I maintain them after launch so you never have to touch the tech side.</p>
         <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.5rem">
-          <div><div style="font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan)">7+</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Platforms</div></div>
-          <div><div style="font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan)">1-2 wk</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Delivery</div></div>
-          <div><div style="font-family:Georgia,serif;font-size:1.8rem;color:var(--cyan)">24h</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Reply Time</div></div>
+          <div><div style="font-family:'Outfit',sans-serif;font-size:1.8rem;color:var(--cyan);font-weight:700;letter-spacing:-1px">7+</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Platforms</div></div>
+          <div><div style="font-family:'Outfit',sans-serif;font-size:1.8rem;color:var(--cyan);font-weight:700;letter-spacing:-1px">1-2 wk</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Delivery</div></div>
+          <div><div style="font-family:'Outfit',sans-serif;font-size:1.8rem;color:var(--cyan);font-weight:700;letter-spacing:-1px">24h</div><div style="color:var(--text-dim);font-size:.8rem;text-transform:uppercase;letter-spacing:1px">Reply Time</div></div>
         </div>
       </div>
     </div>
@@ -324,7 +391,7 @@ footer p{color:var(--text-dim);font-size:.8rem}
 <section id="stack" style="background:var(--bg);padding:3rem 2rem">
   <div class="section-inner" style="text-align:center">
     <span class="section-label">Platforms & Tools</span>
-    <h2 style="font-family:Georgia,serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:2rem;font-weight:400">I Work With What You Already Use</h2>
+    <h2 style="font-family:'Outfit',sans-serif;font-size:1.6rem;color:var(--text-bright);margin-bottom:2rem;font-weight:600;letter-spacing:-.5px">I Work With What You Already Use</h2>
     <div style="display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;max-width:900px;margin:0 auto">
       <div class="stack-chip">Wix</div>
       <div class="stack-chip">Squarespace</div>
@@ -458,6 +525,107 @@ footer p{color:var(--text-dim);font-size:.8rem}
   </div>
 </section>
 
+<!-- FREE TOOLS -->
+<section id="tools" style="background:var(--bg2)">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="section-label">Free Tools</span>
+      <h2 class="section-title">Try Before You Buy</h2>
+      <p class="section-subtitle">Real tools built for bar and restaurant owners. No signup, no email gate — just useful utilities that show how I think about solving business problems.</p>
+    </div>
+
+    <div style="display:flex;justify-content:center">
+      <div class="calc-widget-container">
+
+        <div class="calc-header">
+          <svg class="calc-illustration" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e5ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#ff6b35" stop-opacity="0.3"/></linearGradient>
+              <linearGradient id="cs" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e5ff"/><stop offset="100%" stop-color="#d4a853"/></linearGradient>
+            </defs>
+            <path d="M40 50 L35 90 Q35 95 40 95 L80 95 Q85 95 85 90 L80 50 Z" fill="url(#cg)" stroke="url(#cs)" stroke-width="1.5"/>
+            <line x1="38" y1="65" x2="82" y2="65" stroke="url(#cs)" stroke-width="0.5" opacity="0.5"/>
+            <line x1="37" y1="75" x2="83" y2="75" stroke="url(#cs)" stroke-width="0.5" opacity="0.3"/>
+            <rect x="42" y="42" width="36" height="10" rx="4" fill="url(#cg)" stroke="url(#cs)" stroke-width="1.5"/>
+            <rect x="52" y="38" width="16" height="6" rx="3" fill="url(#cg)" stroke="url(#cs)" stroke-width="1"/>
+            <rect x="50" y="58" width="8" height="8" rx="1.5" fill="#e0f7fa" stroke="#b2ebf2" stroke-width="0.5" opacity="0.6"/>
+            <circle cx="65" cy="62" r="5" fill="#ffb347" stroke="#ff9f00" stroke-width="0.5" opacity="0.6"/>
+            <path d="M72 50 Q76 44 80 48 Q78 52 72 50Z" fill="#66bb6a" opacity="0.5"/>
+            <circle cx="36" cy="97" r="1.5" fill="#00e5ff" opacity="0.4"/>
+            <circle cx="84" cy="98" r="1" fill="#ff6b35" opacity="0.3"/>
+          </svg>
+          <span class="calc-badge">Free Tool</span>
+          <h3 class="calc-title">Menu Cost Floor Calculator</h3>
+          <p class="calc-subtitle">Build your recipe ingredient by ingredient. We'll tell you the minimum price to hit your target cost percentage.</p>
+        </div>
+
+        <div class="calc-recipe-name">
+          <label>Recipe Name</label>
+          <input type="text" id="recipeName" placeholder="e.g. Smoked Bourbon Sour">
+        </div>
+
+        <div class="calc-target">
+          <label>Target Food / Pour Cost %</label>
+          <div class="calc-tq">
+            <button class="calc-tq-btn" onclick="setTarget(20)">20%</button>
+            <button class="calc-tq-btn active" onclick="setTarget(25)">25%</button>
+            <button class="calc-tq-btn" onclick="setTarget(30)">30%</button>
+          </div>
+          <div class="calc-tc">
+            <input type="number" id="targetCost" value="25" min="1" max="100" step="1" onchange="updateTargetButtons()">
+            <span>% custom target</span>
+          </div>
+        </div>
+
+        <div class="calc-ingredients">
+          <label>Ingredients <span class="calc-count" id="itemCount">(0/10)</span></label>
+          <div class="calc-add-form">
+            <input type="text" id="ingName" placeholder="Ingredient name (e.g. Bourbon)">
+            <input type="text" id="ingAmount" placeholder="2 oz">
+            <input type="number" id="ingCost" placeholder="Cost $" min="0" step="0.01">
+            <button class="calc-add-btn" id="addBtn" onclick="addIngredient()">+</button>
+          </div>
+          <div class="calc-list" id="ingredientList">
+            <div class="calc-empty" id="emptyState">Add your first ingredient above. Build a recipe, see the real cost per plate or drink.</div>
+          </div>
+          <div class="calc-running-total">
+            <span class="calc-tl">Total Ingredient Cost</span>
+            <span class="calc-tv" id="totalCost">$0.00</span>
+          </div>
+        </div>
+
+        <button class="btn btn-primary calc-calc" onclick="calculate()" id="calcBtn">Calculate Minimum Menu Price</button>
+        <button class="btn btn-secondary calc-reset" onclick="resetForm()">Reset Recipe</button>
+
+        <div class="calc-result" id="resultBox">
+          <div class="calc-recipe-display" id="resultRecipeName">Recipe Name</div>
+          <div class="calc-result-label">Minimum Menu Price</div>
+          <div class="calc-result-value" id="resultValue">$0.00</div>
+          <div class="calc-result-row">
+            <div class="calc-rs"><div class="calc-rsv" id="statCost">$0.00</div><div class="calc-rsl">Cost Per Serving</div></div>
+            <div class="calc-rs"><div class="calc-rsv" id="statProfit">$0.00</div><div class="calc-rsl">Profit</div></div>
+            <div class="calc-rs"><div class="calc-rsv" id="statMargin">0%</div><div class="calc-rsl">Margin</div></div>
+          </div>
+          <div class="calc-result-actions">
+            <button class="btn btn-secondary" onclick="saveAsPDF()">📄 Save as PDF</button>
+            <button class="btn btn-secondary" onclick="emailRecipe()">✉ Email Recipe</button>
+          </div>
+        </div>
+
+        <div class="calc-email" id="emailCapture">
+          <p>Want a copy of this recipe emailed to you?</p>
+          <div class="calc-email-wrap">
+            <input type="email" id="email" placeholder="your@email.com">
+            <button class="btn btn-primary" onclick="emailRecipe()">Email Me This Recipe</button>
+          </div>
+          <p class="calc-email-note">Or use the <strong>📄 Save as PDF</strong> button above to download a branded copy. The <strong>✉ Email Recipe</strong> button opens your email app with everything pre-filled to send to yourself.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
 <section id="process">
   <div class="section-inner">
@@ -490,7 +658,7 @@ footer p{color:var(--text-dim);font-size:.8rem}
         <polygon points="1150,100 1140,95 1140,105" fill="#ff6b35"/>
       </svg>
       <div class="timeline-connector"></div>
-      <div class="timeline-steps" style="counter-reset:step">
+      <div class="timeline-steps">
         <div class="tl-step"><span class="tl-num">01.</span><h3>Discovery Call</h3><p>20-60 min call. Vision, goals, style, content access.</p><span class="tl-tag">Day 1</span></div>
         <div class="tl-step"><span class="tl-num">02.</span><h3>Proposal & Deposit</h3><p>Scope, timeline, price. 50% deposit to lock in.</p><span class="tl-tag">Day 1</span></div>
         <div class="tl-step"><span class="tl-num">03.</span><h3>Content Gathering</h3><p>Photos, text, branding, platform access provided.</p><span class="tl-tag">Days 1-2</span></div>
@@ -513,7 +681,7 @@ footer p{color:var(--text-dim);font-size:.8rem}
     <div class="case-grid">
       <div class="case-card featured">
         <div class="case-img" style="background:linear-gradient(135deg,#1a0a2e,#2d1b4e);font-size:1.2rem;color:rgba(255,255,255,.7);text-align:center;padding:2rem;line-height:1.6">
-          <strong style="font-family:Georgia,serif;font-size:1.6rem;display:block;margin-bottom:.5rem">Justine Marie</strong>
+          <strong style="font-family:'Outfit',sans-serif;font-size:1.6rem;display:block;margin-bottom:.5rem;font-weight:700;letter-spacing:-.5px">Justine Marie</strong>
           International Psychic Medium
         </div>
         <div class="case-content">
@@ -682,6 +850,218 @@ function zoomFrame(h){document.getElementById('demowrap').style.height=h+'px';do
 
 const obs=new IntersectionObserver((e)=>{e.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+
+/* MENU COST CALCULATOR */
+let ingredients = [];
+
+function setTarget(val){
+  document.getElementById('targetCost').value = val;
+  document.querySelectorAll('.calc-tq-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.calc-tq-btn').forEach(b => { if(b.textContent.trim() === (val + '%')) b.classList.add('active'); });
+  autoCalculate();
+}
+
+function updateTargetButtons(){
+  document.querySelectorAll('.calc-tq-btn').forEach(b => b.classList.remove('active'));
+}
+
+function addIngredient(){
+  if(ingredients.length >= 10){ alert('Maximum 10 ingredients per recipe.'); return; }
+  const nameEl = document.getElementById('ingName');
+  const amountEl = document.getElementById('ingAmount');
+  const costEl = document.getElementById('ingCost');
+  const name = nameEl.value.trim();
+  const amount = amountEl.value.trim();
+  const cost = parseFloat(costEl.value);
+  if(!name){ alert('Please enter an ingredient name.'); nameEl.focus(); return; }
+  if(!cost || cost <= 0){ alert('Please enter a valid cost.'); costEl.focus(); return; }
+  ingredients.push({name, amount: amount || '-', cost});
+  renderIngredients();
+  updateTotal();
+  nameEl.value = ''; amountEl.value = ''; costEl.value = '';
+  nameEl.focus();
+  autoCalculate();
+}
+
+function removeIngredient(index){
+  ingredients.splice(index, 1);
+  renderIngredients();
+  updateTotal();
+  autoCalculate();
+}
+
+function renderIngredients(){
+  const list = document.getElementById('ingredientList');
+  const count = document.getElementById('itemCount');
+  count.textContent = '(' + ingredients.length + '/10)';
+  if(ingredients.length === 0){
+    list.innerHTML = '<div class="calc-empty">Add your first ingredient above. Build a recipe, see the real cost per plate or drink.</div>';
+    document.getElementById('addBtn').disabled = false;
+    return;
+  }
+  document.getElementById('addBtn').disabled = ingredients.length >= 10;
+  list.innerHTML = ingredients.map((ing, i) =>
+    '<div class="calc-row">' +
+      '<span class="cr-name">' + escHtml(ing.name) + '</span>' +
+      '<span class="cr-amount">' + escHtml(ing.amount) + '</span>' +
+      '<span class="cr-cost">$' + ing.cost.toFixed(2) + '</span>' +
+      '<button class="calc-remove" onclick="removeIngredient(' + i + ')" title="Remove">\u00D7</button>' +
+    '</div>'
+  ).join('');
+}
+
+function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function updateTotal(){
+  const total = ingredients.reduce((sum, ing) => sum + ing.cost, 0);
+  document.getElementById('totalCost').textContent = '$' + total.toFixed(2);
+}
+
+function autoCalculate(){ if(ingredients.length > 0) calculate(); }
+
+function calculate(){
+  if(ingredients.length === 0){ alert('Add at least one ingredient first.'); return; }
+  const target = parseFloat(document.getElementById('targetCost').value);
+  const totalCost = ingredients.reduce((sum, ing) => sum + ing.cost, 0);
+  if(!target || target <= 0) return;
+  const minPrice = totalCost / (target / 100);
+  const profit = minPrice - totalCost;
+  const profitMargin = minPrice > 0 ? ((profit / minPrice) * 100).toFixed(1) : 0;
+  document.getElementById('resultValue').textContent = '$' + minPrice.toFixed(2);
+  document.getElementById('statCost').textContent = '$' + totalCost.toFixed(2);
+  document.getElementById('statProfit').textContent = '$' + profit.toFixed(2);
+  document.getElementById('statMargin').textContent = profitMargin + '%';
+  const recipeName = document.getElementById('recipeName').value.trim() || 'Untitled Recipe';
+  document.getElementById('resultRecipeName').textContent = recipeName;
+  document.getElementById('resultBox').classList.add('visible');
+  document.getElementById('emailCapture').classList.add('visible');
+}
+
+function resetForm(){
+  ingredients = [];
+  document.getElementById('targetCost').value = 25;
+  document.querySelectorAll('.calc-tq-btn').forEach(b => { b.classList.toggle('active', b.textContent.trim() === '25%'); });
+  document.getElementById('recipeName').value = '';
+  document.getElementById('ingName').value = '';
+  document.getElementById('ingAmount').value = '';
+  document.getElementById('ingCost').value = '';
+  document.getElementById('email').value = '';
+  renderIngredients();
+  updateTotal();
+  document.getElementById('resultBox').classList.remove('visible');
+  document.getElementById('emailCapture').classList.remove('visible');
+  document.getElementById('addBtn').disabled = false;
+}
+
+function getRecipeSnapshot(){
+  const name = document.getElementById('recipeName').value.trim() || 'Untitled Recipe';
+  const target = parseFloat(document.getElementById('targetCost').value) || 25;
+  const total = ingredients.reduce((s, i) => s + i.cost, 0);
+  const minPrice = total / (target / 100);
+  const profit = minPrice - total;
+  const margin = minPrice > 0 ? (profit / minPrice) * 100 : 0;
+  return {name, target, total, minPrice, profit, margin, ingredients: [...ingredients]};
+}
+
+function buildPlainTextReport(r){
+  let lines = [];
+  lines.push('RECIPE COST ANALYSIS');
+  lines.push('====================');
+  lines.push('Recipe: ' + r.name);
+  lines.push('Target Cost %: ' + r.target + '%');
+  lines.push('');
+  lines.push('INGREDIENTS');
+  lines.push('-----------');
+  if(r.ingredients.length === 0){ lines.push('(none)'); }
+  else { r.ingredients.forEach((i, idx) => { lines.push((idx+1) + '. ' + i.name + ' - ' + (i.amount || '-') + ' - $' + i.cost.toFixed(2)); }); }
+  lines.push('');
+  lines.push('RESULTS');
+  lines.push('-------');
+  lines.push('Total Ingredient Cost: $' + r.total.toFixed(2));
+  lines.push('Minimum Menu Price: $' + r.minPrice.toFixed(2));
+  lines.push('Profit: $' + r.profit.toFixed(2));
+  lines.push('Margin: ' + r.margin.toFixed(1) + '%');
+  lines.push('');
+  lines.push('-');
+  lines.push('Generated by Vicinity Web & Creative');
+  lines.push('vicfromvicinity@proton.me  |  (210) 552-5617');
+  return lines.join('\n');
+}
+
+function emailRecipe(){
+  const email = document.getElementById('email').value.trim();
+  if(!email || !email.includes('@') || !email.includes('.')){ alert('Please enter a valid email address first.'); document.getElementById('email').focus(); return; }
+  if(ingredients.length === 0){ alert('Add at least one ingredient first.'); return; }
+  const r = getRecipeSnapshot();
+  const subject = 'Recipe Cost Analysis: ' + r.name;
+  const body = buildPlainTextReport(r);
+  const mailto = 'mailto:' + encodeURIComponent(email) + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  window.location.href = mailto;
+}
+
+function saveAsPDF(){
+  if(ingredients.length === 0){ alert('Add at least one ingredient first.'); return; }
+  const r = getRecipeSnapshot();
+  const html = buildPrintHtml(r);
+  const iframe = document.createElement('iframe');
+  iframe.style.position = 'fixed';
+  iframe.style.right = '-9999px';
+  iframe.style.bottom = '0';
+  iframe.style.width = '0';
+  iframe.style.height = '0';
+  iframe.style.border = '0';
+  document.body.appendChild(iframe);
+  const doc = iframe.contentDocument || iframe.contentWindow.document;
+  doc.open(); doc.write(html); doc.close();
+  iframe.contentWindow.focus();
+  setTimeout(function(){
+    iframe.contentWindow.print();
+    setTimeout(function(){ document.body.removeChild(iframe); }, 1000);
+  }, 300);
+}
+
+function buildPrintHtml(r){
+  const ingRows = r.ingredients.map((i, idx) => '<tr><td>' + (idx+1) + '</td><td>' + escHtml(i.name) + '</td><td>' + escHtml(i.amount || '-') + '</td><td>$' + i.cost.toFixed(2) + '</td></tr>').join('');
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  return '<!DOCTYPE html><html><head><title>Recipe Cost Analysis - ' + escHtml(r.name) + '</title>' +
+'<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Outfit,Segoe UI,system-ui,sans-serif;color:#08080c;background:#fff;padding:0}.page{max-width:780px;margin:0 auto;padding:40px 50px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between}' +
+'.brand-bar{background:linear-gradient(135deg,#08080c,#0e0e14);color:#f0f0f5;padding:24px 32px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:32px}' +
+'.brand-bar .logo{display:flex;align-items:center;gap:12px}.brand-bar .logo svg{width:42px;height:42px}' +
+'.brand-bar .logo-text{font-weight:800;font-size:1.1rem;letter-spacing:1px}' +
+'.brand-bar .logo-sub{font-size:.7rem;color:#00d4aa;letter-spacing:1.5px;margin-left:6px;font-weight:400}' +
+'.brand-bar .tagline{font-size:.7rem;color:#6b6b78;text-align:right;line-height:1.4}.brand-bar .tagline strong{color:#00e5ff;display:block}' +
+'h1{font-family:Outfit,sans-serif;font-size:2rem;font-weight:700;margin-bottom:6px;color:#08080c;letter-spacing:-1px}' +
+'.doc-meta{color:#6b6b78;font-size:.85rem;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid #e0e0e8}.doc-meta span{color:#08080c;font-weight:600}' +
+'.summary-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}' +
+'.summary-card{background:#f7f7fa;border:1px solid #e0e0e8;border-radius:10px;padding:16px;text-align:center}' +
+'.summary-card .label{font-size:.65rem;color:#6b6b78;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}' +
+'.summary-card .value{font-family:Outfit,sans-serif;font-size:1.6rem;color:#08080c;font-weight:700;letter-spacing:-.5px}' +
+'.summary-card.highlight{background:linear-gradient(135deg,#00e5ff10,#ff6b3510);border-color:#00e5ff}.summary-card.highlight .value{color:#00838f}' +
+'h2{font-family:Outfit,sans-serif;font-size:1.1rem;font-weight:600;color:#08080c;margin-bottom:12px;letter-spacing:-.3px}' +
+'table{width:100%;border-collapse:collapse;margin-bottom:28px}' +
+'th{text-align:left;padding:10px 12px;background:#08080c;color:#f0f0f5;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;font-weight:600}' +
+'th:last-child,td:last-child{text-align:right}td{padding:10px 12px;border-bottom:1px solid #e0e0e8;font-size:.9rem;color:#08080c}tbody tr:nth-child(even){background:#fafafc}' +
+'.notes{background:#f7f7fa;border-left:3px solid #00e5ff;padding:14px 18px;border-radius:0 8px 8px 0;margin-bottom:24px;font-size:.85rem;color:#3a3a44;line-height:1.6}' +
+'.footer{margin-top:auto;padding-top:20px;border-top:2px solid #08080c;display:flex;justify-content:space-between;align-items:center;font-size:.7rem;color:#6b6b78}' +
+'.footer .left{font-weight:600;color:#08080c;letter-spacing:1px}.footer .right{text-align:right}.footer .right a{color:#00b8c4;text-decoration:none}' +
+'@media print{body{print-color-adjust:exact;-webkit-print-color-adjust:exact}.page{padding:20px 30px}}' +
+'</style></head><body><div class="page">' +
+'<div class="brand-bar"><div class="logo"><svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e5ff"/><stop offset="50%" stop-color="#00d4aa"/><stop offset="100%" stop-color="#ff6b35"/></linearGradient></defs><path d="M25 20 Q35 40 50 75 Q65 40 75 20" stroke="url(#bg)" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M20 25 Q30 45 50 80 Q70 45 80 25" stroke="url(#bg)" stroke-width="2" fill="none" opacity="0.6" stroke-linecap="round"/><circle cx="22" cy="18" r="1.5" fill="#00e5ff"/><circle cx="78" cy="18" r="1.5" fill="#ff6b35"/></svg><div><span class="logo-text">VICINTY</span><span class="logo-sub">WEB & CREATIVE</span></div></div><div class="tagline"><strong>Recipe Cost Analysis</strong>Generated by Vicinity Tools</div></div>' +
+'<h1>' + escHtml(r.name) + '</h1>' +
+'<div class="doc-meta">Date: <span>' + today + '</span> &bull; Target Cost: <span>' + r.target + '%</span></div>' +
+'<div class="summary-grid"><div class="summary-card"><div class="label">Ingredients</div><div class="value">' + r.ingredients.length + '</div></div><div class="summary-card"><div class="label">Total Cost</div><div class="value">$' + r.total.toFixed(2) + '</div></div><div class="summary-card"><div class="label">Profit</div><div class="value">$' + r.profit.toFixed(2) + '</div></div><div class="summary-card highlight"><div class="label">Min Price</div><div class="value">$' + r.minPrice.toFixed(2) + '</div></div></div>' +
+'<h2>Ingredient Breakdown</h2>' +
+'<table><thead><tr><th>#</th><th>Ingredient</th><th>Amount</th><th>Cost</th></tr></thead><tbody>' + ingRows + '</tbody></table>' +
+'<div class="notes"><strong>How to use this:</strong> Price this item at <strong>$' + r.minPrice.toFixed(2) + '</strong> or higher to maintain a ' + r.target + '% food/pour cost. At this price, your profit per serving is <strong>$' + r.profit.toFixed(2) + '</strong> with a <strong>' + r.margin.toFixed(1) + '%</strong> gross margin.</div>' +
+'<div class="footer"><div class="left">VICINTY WEB & CREATIVE</div><div class="right">vicfromvicinity@proton.me<br>(210) 552-5617<br>vicinity-creative.vercel.app</div></div>' +
+'</div></body></html>';
+}
+
+// Enter key handlers
+['ingName','ingAmount','ingCost'].forEach(id => {
+  document.getElementById(id).addEventListener('keypress', function(e){ if(e.key === 'Enter'){ e.preventDefault(); addIngredient(); } });
+});
+document.getElementById('targetCost').addEventListener('keypress', function(e){ if(e.key === 'Enter') autoCalculate(); updateTargetButtons(); });
 </script>
 </body>
 </html>
