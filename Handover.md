@@ -50,34 +50,64 @@
 
 ## Project Structure
 ```
-D:\Vicinity\
-├── AgentV.md              # Operational handbook
-├── Handover.md            # This file
+D:\portfolio\vicinity_repo\
+├── AgentV.md               # Operational handbook (ADD-friendly)
+├── Handover.md             # This file
 ├── Model-Recommendations.md # LLM model usage guide
-├── .env                   # API keys
+├── next-session.md         # Session wrap-up + next priorities
+├── fiverr-gig-1-landing-page.md  # Fiverr gig copy (copy-paste ready)
+├── calculator-preview.html # Standalone Menu Cost Calculator widget
 ├── .gitignore
+├── .env                    # API keys
 ├── Clients/
-│   ├── JMarie.md          # Client dossier
-│   └── JMarie/            # Client assets & content
+│   ├── JMarie.md           # Client dossier
+│   └── JMarie/             # Client assets & content
 │       ├── contact-page-copy.md
 │       ├── final-site-copy.md
 │       ├── reiki-descriptions.md
 │       ├── site-polish-checklist.html
 │       ├── WhatsApp Chat with Justine Marie.txt
 │       └── Justine Marie Doc.md
-└── 03_CONFIGS/
-    └── continue/          # (empty — for Continue.dev config)
+└── portfolio/              # Main site (deployed to Vercel)
+    ├── index.html          # Vicinity Web & Creative portfolio site
+    ├── assets/
+    │   └── headshot.png    # Your circular headshot (About section)
+    ├── .gitignore
+    ├── .vercel/            # Vercel project config
+    ├── burger-demo/        # Demo site — Smash & Stack (burger restaurant)
+    ├── real-estate-demo/   # Demo site — Summit Realty (real estate)
+    └── medical-demo/       # Demo site — Lake Care Family Medicine
 ```
+
+## Live Sites & URLs
+- **Portfolio site (Vicinity):** https://vicinity-creative.vercel.app
+- **GitHub repo:** https://github.com/vic-from-vicinity/vicinity_one
+- **Fiverr gig #1:** https://www.fiverr.com/victormendoz324/design-a-high-converting-landing-page-or-squeeze-page
+- **Demo — Summit Realty:** https://real-estate-demo-xi-eight.vercel.app
+- **Demo — Smash & Stack:** https://burger-demo-mu.vercel.app
+- **Demo — Lake Care:** https://medical-demo-five.vercel.app
+
+## Deploy Pipeline
+- **Main site:** GitHub → Vercel auto-deploy (connected via Git, root=`portfolio/`)
+- **Demo sites:** CLI-only deploys (NOT connected to GitHub — future manual deploys via `npx vercel --prod --yes`)
+- **To redeploy main site:** `git push origin main`
 
 ## Tools & Accounts
 - **Wix Dashboard**: App-based management, payments active
 - **Chase Business**: Checking + "Tax Reserve (8.6%)" auto-transfer setup recommended
-- **Canva**: Primary design tool
+- **Canva**: Primary design tool (used for Fiverr gig thumbnail + composite)
 - **SquareUp Appointments**: Under consideration to replace Calendly
 - **Google Voice/TextNow**: For separate business line
+- **GitHub**: `vic-from-vicinity/vicinity_one` (connected to Vercel auto-deploy)
+- **Vercel**: `vicinity-creative` project (auto-deploys from GitHub `main` on push)
+- **Fiverr**: Seller name `victormendoz324` — gig #1 live (Landing Page)
+- **Contra**: Account created (incomplete — needs featured image + portfolio)
+- **Gumroad**: Not set up yet (planned for digital products)
 
 ## Notes
-- No git repo set up — consider initializing one
+- **Git repo IS initialized** — connected to GitHub, auto-deploys to Vercel on push
 - `AgentV.md` contains the full operational handbook (ADD-friendly workflow guidelines)
 - Always check client dossier before starting work
 - See `Model-Recommendations.md` for which LLM to use per task type
+- `next-session.md` has the priority stack for next work session
+- **Tip from Gemini:** Before building the bar inventory app, talk to local San Antonio bar managers about their pain points first
